@@ -97,3 +97,13 @@ function findScore(midterm1, midterm2, final) {
   }
 }
 console.log(findScore(80, 90, 100));
+
+function triangel(num1, num2, num3) {
+  let perimeter = num1 + num2 + num3;
+  return perimeter;
+}
+console.log(triangel(3, 4, 5));
+
+function sum(num1, num2) {
+  let sum;
+}

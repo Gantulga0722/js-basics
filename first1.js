@@ -1,27 +1,27 @@
 let days = 45;
-if (days < 31) {
+if (days <= 31) {
   console.log("This month is Janurary");
-} else if (days < 59) {
+} else if (days <= 59) {
   console.log("This month is Feburary");
-} else if (days < 90) {
+} else if (days <= 90) {
   console.log("This month is March");
-} else if (days < 120) {
+} else if (days <= 120) {
   console.log("This month is April");
-} else if (days < 151) {
+} else if (days <= 151) {
   console.log("This month is May");
-} else if (days < 181) {
+} else if (days <= 181) {
   console.log("This month is June");
-} else if (days < 212) {
+} else if (days <= 212) {
   console.log("This month is July");
-} else if (days < 243) {
+} else if (days <= 243) {
   console.log("This month is August");
-} else if (days < 273) {
+} else if (days <= 273) {
   console.log("This month is September");
-} else if (days < 304) {
+} else if (days <= 304) {
   console.log("This month is October");
-} else if (days < 334) {
+} else if (days <= 334) {
   console.log("This month is Novenber");
-} else if (days < 365) {
+} else if (days <= 365) {
   console.log("This month is December");
 } else {
   console.log("The days are more than a year");

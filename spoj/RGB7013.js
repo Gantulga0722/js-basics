@@ -4,3 +4,11 @@ function findSec(x, y) {
   console.log("Second:", sec);
 }
 findSec(3, 4);
+
+ // if ((min = 60)) {
+  //   min = 0;
+  // } else if (min < 60) {
+  //   min = min;
+  // } else if (min > 60) {
+  //   min = min - 60;
+  // }

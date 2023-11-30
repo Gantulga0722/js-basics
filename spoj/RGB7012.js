@@ -15,4 +15,4 @@ function findTime(x) {
   }
   console.log("Time is:", time, ":", min, ":", sec);
 }
-findTime(13612);
+findTime(30000000);

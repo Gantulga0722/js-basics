@@ -1,9 +1,9 @@
 function findfloor(x, y) {
   function finddoor(n) {
-    let floors = 1;
-    let doors = 1;
-    if (n <= y) {
-      floors = x - (x - floors);
+    let floors = 0;
+    let doors = 0;
+    if (n <= x * y) {
+      floors = (n - 1) / y;
       doors = n;
     } else if (n <= y + y) {
       floors = x - (x - floors - floors);
@@ -18,5 +18,4 @@ function findfloor(x, y) {
   }
   finddoor(10);
 }
-
 findfloor(5, 4);

@@ -1,17 +1,8 @@
-let arr = [3, 2, 1, 5, 4];
-function filterByDate() {
-  let swit;
-  for (let i = 0; i < arr.length; i++) {
-    console.log("Start", arr[i]);
-    for (let a = i + 1; a < arr.length; a++)
-      if (arr[i] > arr[a]) {
-        swit = arr[i];
-        arr[i] = arr[a];
-        arr[a] = swit;
-      }
-    console.log("End", arr[i]);
-  }
-}
-filterByDate();
-// let s = filterByDate();
-// console.log(s);
+let n = 269;
+let y = 6;
+let a = 0;
+let z = 5;
+let b = 0;
+a = (n - (n % y)) / y + 1;
+b = (a - (a % z)) / z;
+console.log(b);

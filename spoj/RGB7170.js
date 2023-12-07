@@ -2,15 +2,19 @@ function findfloor(x, y) {
   function finddoor(n) {
     let floors = 0;
     let doors = 0;
-    if (n <= x * y && n < y) {
-      floors = n / y - (n % y);
-      doors = ((n - 1) % y) + 1;
-    } else if (n < y) {
-      floors = 1;
-      doors = n;
+    if (n <= x * y) {
+      if (n % y != 0) {
+        floors = (n - (n % y)) / y + 1;
+        doors = ((n - 1) % y) + 1;
+      } else {
+        floors = (n - (n % y)) / y;
+        doors = ((n - 1) % y) + 1;
+      }
+    } else {
+      console.log("There are only", x * y, "doors");
     }
     console.log("Floor:", floors, "Door:", doors);
   }
-  finddoor(10);
+  finddoor(55);
 }
-findfloor(5, 4);
+findfloor(9, 6);

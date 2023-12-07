@@ -71,20 +71,29 @@ let news = [
   },
 ];
 function filterByDate(bydate, num) {
+  let swit;
+  for (let i = 0; i < news.length; i++) {
+    for (let a = i + 1; a < news.length; a++)
+      if (news[i].pubDate > news[a].pubDate) {
+        swit = news[i];
+        news[i] = news[a];
+        news[a] = swit;
+      }
+  }
   let foundNews = [];
-  let old = bydate[0].pubDate;
   let count = 0;
-  for (let i = 0; i < bydate.length; i++) {
-    if (old > bydate[i].pubDate) {
-      foundNews[count] = bydate[i];
+  if (bydate == "First") {
+    for (let b = 0; b < num; b++) {
+      foundNews[count] = news[b];
+      count++;
+    }
+  } else if (bydate == "Last") {
+    for (let c = news.length - num; c < news.length; c++) {
+      foundNews[count] = news[c];
       count++;
     }
   }
-  let foundNum = [];
-  for (let a = 0; a < num; a++) {
-    foundNum[a] = foundNews[a];
-  }
-  return foundNum;
+  return foundNews;
 }
-let oldDate = filterByDate(news, 5);
+let oldDate = filterByDate("First", 5);
 console.log("Old News:", oldDate);

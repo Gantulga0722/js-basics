@@ -24,7 +24,7 @@ function findfloor(x, z, y) {
             entrns = (n - (n % (x * y))) / (x * y);
           }
           a = (n - (n % y)) / y + 1;
-          floors = (entrns * x - a - ((entrns * x - a) % y)) / y + 1;
+          floors = a - (entrns - 1) * x;
         } else {
           doors = ((n - 1) % y) + 1;
           if (n % (x * y) != 0) {
@@ -33,8 +33,7 @@ function findfloor(x, z, y) {
             entrns = (n - (n % (x * y))) / (x * y);
           }
           a = (n - (n % y)) / y;
-          floors = (entrns * x - a - ((entrns * x - a) % y)) / y + 1;
-          console.log(a);
+          floors = a - (entrns - 1) * x;
         }
       }
     } else {
@@ -43,6 +42,6 @@ function findfloor(x, z, y) {
 
     console.log("Etnrance:", entrns, "Floor:", floors, "Door:", doors);
   }
-  finddoor(270);
+  finddoor(268);
 }
 findfloor(9, 5, 6);

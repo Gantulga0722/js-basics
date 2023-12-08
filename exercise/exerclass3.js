@@ -1,16 +1,16 @@
 function findSome(x, y, z) {
   let some = [];
-  count = -1;
+  count = 0;
   if (x < y) {
     for (let i = x; i <= y; i = i + z) {
-      count++;
       some[count] = i;
+      count++;
     }
     console.log(some);
   } else {
     for (let a = y; a <= x; a = a + z) {
-      count++;
       some[count] = a;
+      count++;
     }
     console.log(some);
   }

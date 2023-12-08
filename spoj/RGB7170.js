@@ -15,6 +15,6 @@ function findfloor(x, y) {
     }
     console.log("Floor:", floors, "Door:", doors);
   }
-  finddoor(55);
+  finddoor(54);
 }
 findfloor(9, 6);

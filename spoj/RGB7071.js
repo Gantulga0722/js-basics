@@ -1,10 +1,10 @@
-function findNatur(n) {
-  let sum;
+function findSquareSum(n) {
+  let square;
   if (n == 1) {
-    return 1;
+    return n;
   } else {
-    sum = (n * (n + 1)) / 2;
-    return sum;
+    square = (1 / 6) * n * (n + 1) * (2 * n + 1);
+    return square;
   }
 }
-console.log(findNatur(9));
+console.log(findSquareSum(15));

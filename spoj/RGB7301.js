@@ -9,6 +9,6 @@ function findNum(n) {
   } else {
     console.log("This is more than 10^6");
   }
-  console.log(capNum);
+  console.log(capNum, "is the Capitan Number");
 }
-findNum(2000000);
+findNum(23456);

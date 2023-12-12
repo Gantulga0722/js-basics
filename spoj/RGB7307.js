@@ -2,7 +2,7 @@ function findSumNum(n) {
   let minNum = 0;
   let digit = 0;
   if (n < 10) {
-    maxNum = n;
+    minNum = n;
   } else {
     for (let i = 0; i < n; i++) {
       digit = n % 10;
@@ -12,4 +12,4 @@ function findSumNum(n) {
   }
   console.log(n);
 }
-findSumNum(1234);
+findSumNum(3);

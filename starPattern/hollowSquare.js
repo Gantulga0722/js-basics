@@ -1,14 +1,3 @@
-function drwSqr(size) {
-  let sqrStr = "";
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      sqrStr += "*";
-    }
-    sqrStr += "\n";
-  }
-  console.log(sqrStr);
-}
-drwSqr(10);
 function hollowSqr(size) {
   let sqrStr = "";
   for (let i = 0; i < size; i++) {
@@ -23,4 +12,4 @@ function hollowSqr(size) {
   }
   console.log(sqrStr);
 }
-hollowSqr(10);
+hollowSqr(5);

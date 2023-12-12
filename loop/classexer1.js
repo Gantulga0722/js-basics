@@ -15,5 +15,3 @@ I always love to hear from you all.`;
   console.log(count);
 }
 countLett();
-
-

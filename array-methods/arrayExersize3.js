@@ -71,9 +71,7 @@ let products = [
   },
 ];
 function sortByPrice() {
-  products.sort((prod1, prod2) => {
-    return prod2.stock - prod1.stock;
-  });
+  products.sort((prod1, prod2) => prod2.stock - prod1.stock);
   console.log(products);
 }
 sortByPrice();

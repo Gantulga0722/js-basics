@@ -4,12 +4,17 @@ function findSumNum(n) {
   if (n < 10) {
     minNum = n;
   } else {
+    minNum = n % 10;
     for (let i = 0; i < n; i++) {
       digit = n % 10;
       n = (n - digit) / 10;
-      console.log(digit);
+      if (digit <= minNum) {
+        minNum = digit;
+      } else {
+        minNum = minNum;
+      }
     }
+    console.log("Minimum number is:", minNum);
   }
-  console.log(n);
 }
-findSumNum(3);
+findSumNum(963271);

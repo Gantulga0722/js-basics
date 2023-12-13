@@ -17,4 +17,4 @@ function findSumNum(n) {
   }
   console.log(sum);
 }
-findSumNum(2213122);
+findSumNum(221312297);

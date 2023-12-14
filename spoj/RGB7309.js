@@ -23,7 +23,6 @@ function palindromNumber(num) {
       reverse = reverse + minNum;
     }
     palin = reverse + rev;
-    console.log(palin);
   }
   if (palin == checkNum) {
     console.log("Yes this is the Palindrom number");
@@ -31,4 +30,4 @@ function palindromNumber(num) {
     console.log("No this is not the Palindrom number");
   }
 }
-palindromNumber(12321);
+palindromNumber(3333);

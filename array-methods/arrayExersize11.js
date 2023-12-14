@@ -1,0 +1,61 @@
+const shoppingCartItems = [
+  { name: "Laptop", price: 1200, quantity: 1, category: "Electronics" },
+  { name: "Backpack", price: 80, quantity: 2, category: "Fashion" },
+  { name: "Smartphone", price: 800, quantity: 1, category: "Electronics" },
+  { name: "Shoes", price: 50, quantity: 1, category: "Fashion" },
+  { name: "Book", price: 15, quantity: 3, category: "Books" },
+  { name: "Headphones", price: 100, quantity: 1, category: "Electronics" },
+  { name: "T-shirt", price: 20, quantity: 5, category: "Fashion" },
+  { name: "Tablet", price: 300, quantity: 2, category: "Electronics" },
+  { name: "Jeans", price: 60, quantity: 2, category: "Fashion" },
+  { name: "Notebook", price: 10, quantity: 4, category: "Books" },
+  { name: "Camera", price: 500, quantity: 1, category: "Electronics" },
+  { name: "Dress", price: 70, quantity: 1, category: "Fashion" },
+  {
+    name: "External Hard Drive",
+    price: 80,
+    quantity: 1,
+    category: "Electronics",
+  },
+  { name: "Sweater", price: 40, quantity: 3, category: "Fashion" },
+  { name: "Fitness Tracker", price: 60, quantity: 1, category: "Electronics" },
+  { name: "Sunglasses", price: 25, quantity: 2, category: "Fashion" },
+  { name: "Cookbook", price: 18, quantity: 2, category: "Books" },
+  { name: "Gaming Console", price: 300, quantity: 1, category: "Electronics" },
+  { name: "Running Shoes", price: 55, quantity: 1, category: "Fashion" },
+  { name: "Desk Chair", price: 120, quantity: 1, category: "Furniture" },
+];
+
+function findTotalCost(disc) {
+  let total = shoppingCartItems.map((element) => {
+    return {
+      name: element.name,
+      quantity: element.quantity,
+      price: element.price - (element.price * disc) / 100,
+      totaCost:
+        (element.price - (element.price * disc) / 100) * element.quantity,
+    };
+  });
+  return total;
+}
+findTotalCost(10);
+
+function findAverage() {
+  let average = 0;
+  let discPric = findTotalCost(10);
+  for (let i = 0; i < discPric.length; i++) {
+    average = average + discPric[i].price;
+  }
+  average = average / discPric.length;
+  console.log(average);
+  return average;
+}
+findAverage();
+
+function findMoreAve() {
+  let moreAve = findTotalCost(10);
+  let ave = findAverage();
+  let mAverage = moreAve.filter((element) => element.price > ave);
+  console.log(mAverage);
+}
+findMoreAve();

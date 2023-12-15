@@ -1,6 +1,8 @@
-function findFact(num) {
-  let factor = 0;
-  factor = ((2 + (num - 1)) / 2) * num;
+function findfactorial(n) {
+  let factor = 1;
+  for (let i = 1; i < n; i++) {
+    factor = factor / i;
+  }
   console.log(factor);
 }
-findFact(5);
+findfactorial(120);

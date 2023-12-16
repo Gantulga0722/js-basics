@@ -14,6 +14,6 @@ function mostFrequent() {
       }
     }
   }
-  console.log(element, ":", mostFreq);
+  console.log("The most frequent item is:", element, ":", mostFreq, "units");
 }
 mostFrequent();

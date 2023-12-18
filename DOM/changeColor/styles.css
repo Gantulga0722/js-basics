@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  width: 900px;
+  height: 600px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
+}
+.butt {
+  width: 200px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+  border: none;
+  border-radius: 5px;
+}

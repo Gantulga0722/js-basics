@@ -15,7 +15,7 @@ function guesNumber() {
 guesNumber();
 
 function reset() {
-  let number1 = Math.floor(Math.random() * 100);
+  number1 = Math.floor(Math.random() * 100);
   document.getElementById("num1").value = "";
 }
 reset();

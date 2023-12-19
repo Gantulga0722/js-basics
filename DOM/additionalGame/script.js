@@ -10,7 +10,6 @@ function checkSum() {
     alert("The result is incorrect");
   }
 }
-checkSum();
 
 function reset() {
   num1 = Math.floor(Math.random() * 100);
@@ -19,4 +18,3 @@ function reset() {
   document.getElementById("inp2").value = num2;
   document.getElementById("inp3").value = "";
 }
-reset();

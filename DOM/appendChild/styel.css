@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+}
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 250px;
+  height: 400px;
+  gap: 10px;
+  border-radius: 5px;
+  background-color: green;
+  padding: 20px;
+}
+.card_img {
+  width: 150px;
+  height: 200px;
+  margin: auto;
+}

@@ -66,4 +66,5 @@ function scoreAdd() {
 
 function restartGame() {
   gameField.innerHTML = "";
+  scoreBox.value = "";
 }

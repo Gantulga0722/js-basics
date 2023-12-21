@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  margin: auto;
 }
 .box {
   width: 100px;
@@ -28,7 +29,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
 }
 .st_button {
   width: 80px;
@@ -61,4 +62,13 @@
   border-radius: 5px;
   position: absolute;
   background-color: none;
+}
+.chance_box {
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

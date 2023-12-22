@@ -234,6 +234,7 @@ function subNum() {
   num1 = Number(scrInput.innerHTML);
   scrInput.innerHTML = "";
   localStorage.setItem("num1", num1);
+  localStorage.setItem("op", "-");
 }
 function subNum1() {
   num2 = Number(scrInput.innerHTML);
@@ -244,6 +245,7 @@ function sumNum() {
   num1 = Number(scrInput.innerHTML);
   scrInput.innerHTML = "";
   localStorage.setItem("num1", num1);
+  localStorage.setItem("op", "+");
 }
 function sumNum1() {
   num2 = Number(scrInput.innerHTML);
@@ -262,6 +264,12 @@ function equal() {
       break;
     case "/":
       result = num1 / num2;
+      break;
+    case "-":
+      result = num1 - num2;
+      break;
+    case "+":
+      result = num1 + num2;
       break;
   }
   scrInput.innerHTML = result;

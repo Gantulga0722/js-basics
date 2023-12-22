@@ -14,7 +14,12 @@ let dot0 = "";
 let plsM = 0;
 let num1 = 0;
 let num2 = 0;
-let resuslt = 0;
+let result = 0;
+let resusltMult = 0;
+let resusltDiv = 0;
+let resusltSub = 0;
+let resusltSum = 0;
+let resusltPers = 0;
 
 calcul.setAttribute("class", "calcul");
 root.appendChild(calcul);
@@ -129,16 +134,19 @@ const multiplButton = document.createElement("button");
 multiplButton.setAttribute("class", "oper_button");
 operations1.appendChild(multiplButton);
 multiplButton.innerHTML = "x";
+multiplButton.addEventListener("click", multiply);
 
 const subtactButton = document.createElement("button");
 subtactButton.setAttribute("class", "oper_button");
 operations1.appendChild(subtactButton);
 subtactButton.innerHTML = "-";
+subtactButton.addEventListener("click", subNum);
 
 const sumButton = document.createElement("button");
 sumButton.setAttribute("class", "oper_button");
 operations1.appendChild(sumButton);
 sumButton.innerHTML = "+";
+sumButton.addEventListener("click", sumNum);
 
 const equalButton = document.createElement("button");
 equalButton.setAttribute("class", "oper_button");
@@ -190,20 +198,71 @@ function dot00() {
   dot0 = dot.innerHTML;
   scrInput.innerHTML = scrInput.innerHTML + dot0;
 }
-
 function aclear() {
   scrInput.innerHTML = "";
 }
 function plsMns() {
   scrInput.innerHTML = Number(scrInput.innerHTML) * -1;
 }
+
 function divid() {
   num1 = Number(scrInput.innerHTML);
   scrInput.innerHTML = "";
-  num2 = Number(scrInput.innerHTML);
-  resuslt = num1 / num2;
-  return resuslt;
+  localStorage.setItem("num1", num1);
+  localStorage.setItem("op", "/");
 }
+function divide() {
+  num2 = Number(scrInput.innerHTML);
+  resusltDiv = localStorage.getItem("num1") / num2;
+  localStorage.setItem("op", "/");
+  return resusltDiv;
+}
+
+function multiply() {
+  num1 = Number(scrInput.innerHTML);
+  scrInput.innerHTML = "";
+  localStorage.setItem("num1", num1);
+  localStorage.setItem("op", "*");
+}
+function multiply1() {
+  num2 = Number(scrInput.innerHTML);
+  resusltMult = localStorage.getItem("num1") * num2;
+  return resusltMult;
+}
+
+function subNum() {
+  num1 = Number(scrInput.innerHTML);
+  scrInput.innerHTML = "";
+  localStorage.setItem("num1", num1);
+}
+function subNum1() {
+  num2 = Number(scrInput.innerHTML);
+  resusltSub = localStorage.getItem("num1") - num2;
+  return resusltSub;
+}
+function sumNum() {
+  num1 = Number(scrInput.innerHTML);
+  scrInput.innerHTML = "";
+  localStorage.setItem("num1", num1);
+}
+function sumNum1() {
+  num2 = Number(scrInput.innerHTML);
+  resusltSum = localStorage.getItem("num1") + num2;
+  return resusltSum;
+}
+
 function equal() {
-  scrInput.innerHTML = divid();
+  num1 = Number(localStorage.getItem("num1"));
+  num2 = Number(scrInput.innerHTML);
+  let op = localStorage.getItem("op");
+  let result = 0;
+  switch (op) {
+    case "*":
+      result = num1 * num2;
+      break;
+    case "/":
+      result = num1 / num2;
+      break;
+  }
+  scrInput.innerHTML = result;
 }

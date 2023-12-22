@@ -31,9 +31,10 @@
   padding: 20px 20px 20px 20px;
 }
 .scr_input {
-  width: 100%;
+  width: 400px;
   height: 280px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: flex-end;
   border-radius: 40px 40px 0 0;
@@ -42,8 +43,7 @@
   background-color: black;
   font-size: 70px;
   padding-right: 40px;
-  padding-left: 20px;
-  flex-wrap: wrap;
+  padding-left: 20px; 
 }
 .operations {
   width: 75%;

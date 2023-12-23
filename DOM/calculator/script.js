@@ -211,23 +211,12 @@ function divid() {
   localStorage.setItem("num1", num1);
   localStorage.setItem("op", "/");
 }
-function divide() {
-  num2 = Number(scrInput.innerHTML);
-  resusltDiv = localStorage.getItem("num1") / num2;
-  localStorage.setItem("op", "/");
-  return resusltDiv;
-}
 
 function multiply() {
   num1 = Number(scrInput.innerHTML);
   scrInput.innerHTML = "";
   localStorage.setItem("num1", num1);
   localStorage.setItem("op", "*");
-}
-function multiply1() {
-  num2 = Number(scrInput.innerHTML);
-  resusltMult = localStorage.getItem("num1") * num2;
-  return resusltMult;
 }
 
 function subNum() {
@@ -236,21 +225,12 @@ function subNum() {
   localStorage.setItem("num1", num1);
   localStorage.setItem("op", "-");
 }
-function subNum1() {
-  num2 = Number(scrInput.innerHTML);
-  resusltSub = localStorage.getItem("num1") - num2;
-  return resusltSub;
-}
+
 function sumNum() {
   num1 = Number(scrInput.innerHTML);
   scrInput.innerHTML = "";
   localStorage.setItem("num1", num1);
   localStorage.setItem("op", "+");
-}
-function sumNum1() {
-  num2 = Number(scrInput.innerHTML);
-  resusltSum = localStorage.getItem("num1") + num2;
-  return resusltSum;
 }
 
 function equal() {

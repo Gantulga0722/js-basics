@@ -4,30 +4,63 @@
   padding: 0;
 }
 .container {
-  width: 720px;
+  width: 1500px;
   margin: auto;
   height: 100vh;
   padding: 0px 16px;
+  display: flex;
+  justify-content: center;
 }
 .boards {
   display: flex;
-  gap: 16px;
+  gap: 30px;
   padding: 120px 0px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
 .board {
-  width: 160px;
-  height: 107.2px;
+  width: 310px;
+  height: 120px;
   background-color: #ebecf0;
   border-radius: 8px;
   padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   position: relative;
   overflow: hidden;
   font-family: "Roboto", sans-serif;
+  justify-content: space-between;
+}
+.card_head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+.add_btn {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  background-color: #ebecf0;
+}
+.add_btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.count_task {
+  font-size: 19px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+img {
+  width: 25px;
+  height: 25px;
 }

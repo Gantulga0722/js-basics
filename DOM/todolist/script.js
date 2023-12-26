@@ -34,64 +34,162 @@ const tasksContainer = document.createElement("div");
 tasksContainer.setAttribute("class", "task_container");
 root.appendChild(tasksContainer);
 
+let arr = [];
+
 function addTask() {
   localStorage.setItem("task", taskInput.value);
-  const taskDiv = document.createElement("div");
-  taskDiv.setAttribute("class", "added_task");
-  tasksContainer.appendChild(taskDiv);
+  arr[arr.length] = taskInput.value;
+  taskInput.value = "";
+  tasksContainer.innerHTML = "";
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    const taskDiv = document.createElement("div");
+    taskDiv.setAttribute("class", "added_task");
+    tasksContainer.appendChild(taskDiv);
 
-  const checkAndLabel = document.createElement("div");
-  checkAndLabel.setAttribute("class", "check_label");
-  taskDiv.appendChild(checkAndLabel);
+    const checkAndLabel = document.createElement("div");
+    checkAndLabel.setAttribute("class", "check_label");
+    taskDiv.appendChild(checkAndLabel);
 
-  const taskCheckbox = document.createElement("input");
-  taskCheckbox.select("class", "task_checkbox");
-  taskCheckbox.setAttribute("type", "checkbox");
-  taskCheckbox.setAttribute("id", "checkboxId");
-  checkAndLabel.appendChild(taskCheckbox);
-  taskCheckbox.addEventListener("click", doneTask);
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.select("class", "task_checkbox");
+    taskCheckbox.setAttribute("type", "checkbox");
+    taskCheckbox.setAttribute("id", "checkboxId");
+    checkAndLabel.appendChild(taskCheckbox);
+    taskCheckbox.addEventListener("click", doneTask);
 
-  const formLabel = document.createElement("form");
-  formLabel.setAttribute("action", "");
-  checkAndLabel.appendChild(formLabel);
+    const formLabel = document.createElement("form");
+    formLabel.setAttribute("action", "");
+    checkAndLabel.appendChild(formLabel);
 
-  const taskLabel = document.createElement("input");
-  taskLabel.setAttribute("class", "task_label");
-  taskLabel.setAttribute("id", "task_label");
-  taskLabel.setAttribute("type", "text");
-  taskLabel.setAttribute("disabled", "disbaled");
-  formLabel.appendChild(taskLabel);
-  taskLabel.value = localStorage.getItem("task");
+    const taskLabel = document.createElement("input");
+    taskLabel.setAttribute("class", "task_label");
+    taskLabel.setAttribute("type", "text");
+    taskLabel.setAttribute("disabled", "disbaled");
+    formLabel.appendChild(taskLabel);
+    taskLabel.value = arr[i];
 
-  const addedTaskBtns = document.createElement("div");
-  addedTaskBtns.setAttribute("class", "addedTask_btns");
-  taskDiv.appendChild(addedTaskBtns);
+    const addedTaskBtns = document.createElement("div");
+    addedTaskBtns.setAttribute("class", "addedTask_btns");
+    taskDiv.appendChild(addedTaskBtns);
 
-  const editButton = document.createElement("button");
-  editButton.setAttribute("class", "task_buttons");
-  editButton.innerText = "Edit";
-  addedTaskBtns.appendChild(editButton);
-  editButton.addEventListener("click", editTask);
+    const editButton = document.createElement("label");
+    editButton.setAttribute("class", "task_buttons");
+    editButton.setAttribute("for", "checkCH");
+    editButton.innerText = "Edit";
+    addedTaskBtns.appendChild(editButton);
+    editButton.addEventListener("click", editTask);
+    const CheckboxLabel = document.createElement("input");
 
-  const deleteButton = document.createElement("button");
-  deleteButton.setAttribute("class", "task_buttons");
-  deleteButton.innerText = "Delete";
-  addedTaskBtns.appendChild(deleteButton);
-  deleteButton.addEventListener("click", deleteTask);
+    CheckboxLabel.setAttribute("type", "checkbox");
+    CheckboxLabel.setAttribute("id", "checkCH");
+    CheckboxLabel.style.display = "none";
+    addedTaskBtns.appendChild(CheckboxLabel);
 
-  function editTask() {
-    if (document.getElementById("task_label").disabled == true) {
-      document.getElementById("task_label").disabled = false;
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "task_buttons");
+    deleteButton.innerText = "Delete";
+    addedTaskBtns.appendChild(deleteButton);
+    deleteButton.addEventListener("click", deleteTask);
+
+    function editTask() {
+      if (CheckboxLabel.checked) {
+        taskLabel.disabled = true;
+      } else {
+        taskLabel.disabled = false;
+      }
+    }
+
+    function doneTask() {
+      if (taskCheckbox.checked) {
+        taskLabel.style.color = "green";
+      } else {
+        taskLabel.style.color = "black";
+      }
+    }
+
+    function deleteTask() {
+      arr.splice(i, 1);
+      console.log(arr);
+      updateArr();
     }
   }
+}
 
-  function doneTask() {
-    if (document.getElementById("checkboxId").checked == true) {
-      document.getElementById("task_label").style.color = "green";
+function updateArr() {
+  tasksContainer.innerHTML = "";
+
+  for (let i = 0; i < arr.length; i++) {
+    const taskDiv = document.createElement("div");
+    taskDiv.setAttribute("class", "added_task");
+    tasksContainer.appendChild(taskDiv);
+
+    const checkAndLabel = document.createElement("div");
+    checkAndLabel.setAttribute("class", "check_label");
+    taskDiv.appendChild(checkAndLabel);
+
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.select("class", "task_checkbox");
+    taskCheckbox.setAttribute("type", "checkbox");
+    taskCheckbox.setAttribute("id", "checkboxId");
+    checkAndLabel.appendChild(taskCheckbox);
+    taskCheckbox.addEventListener("click", doneTask);
+
+    const formLabel = document.createElement("form");
+    formLabel.setAttribute("action", "");
+    checkAndLabel.appendChild(formLabel);
+
+    const taskLabel = document.createElement("input");
+    taskLabel.setAttribute("class", "task_label");
+    taskLabel.setAttribute("id", "task_label");
+    taskLabel.setAttribute("type", "text");
+    taskLabel.setAttribute("disabled", "disbaled");
+    formLabel.appendChild(taskLabel);
+    taskLabel.value = arr[i];
+
+    const addedTaskBtns = document.createElement("div");
+    addedTaskBtns.setAttribute("class", "addedTask_btns");
+    taskDiv.appendChild(addedTaskBtns);
+
+    const editButton = document.createElement("label");
+    editButton.setAttribute("class", "task_buttons");
+    editButton.setAttribute("for", "checkCH");
+    editButton.innerText = "Edit";
+    addedTaskBtns.appendChild(editButton);
+    editButton.addEventListener("click", editTask);
+    const CheckboxLabel = document.createElement("input");
+
+    CheckboxLabel.setAttribute("type", "checkbox");
+    CheckboxLabel.setAttribute("id", "checkCH");
+    CheckboxLabel.style.display = "none";
+    addedTaskBtns.appendChild(CheckboxLabel);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "task_buttons");
+    deleteButton.innerText = "Delete";
+    addedTaskBtns.appendChild(deleteButton);
+    deleteButton.addEventListener("click", deleteTask);
+
+    function editTask() {
+      if (CheckboxLabel.checked) {
+        taskLabel.disabled = true;
+      } else {
+        taskLabel.disabled = false;
+      }
     }
-  }
 
-  function deleteTask() {
-    taskDiv.innerHTML = "";
+    function doneTask() {
+      if (taskCheckbox.checked) {
+        taskLabel.style.color = "green";
+      } else {
+        taskLabel.style.color = "black";
+      }
+    }
+
+    function deleteTask() {
+      arr.splice(i, 1);
+      console.log(arr);
+      updateArr();
+    }
   }
 }

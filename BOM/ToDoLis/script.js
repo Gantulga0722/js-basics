@@ -168,3 +168,98 @@ addButton3.appendChild(addText3);
 addText3.innerHTML = "Add card";
 
 // Done Card>
+
+// Add Task card
+
+const backDropActive = document.createElement("div");
+backDropActive.setAttribute("class", "backdrop_active");
+
+const addTaskCard = document.createElement("form");
+backDropActive.appendChild(addTaskCard);
+
+const headAddTask = document.createElement("h1");
+addTaskCard.appendChild(headAddTask);
+
+// <Title
+
+const titlejDiv = document.createElement("div");
+titlejDiv.setAttribute("class", "title_div");
+addTaskCard.appendChild(titlejDiv);
+
+const titleLabel = document.createElement("label");
+titleLabel.setAttribute("class", "title_label");
+titlejDiv.appendChild(titleLabel);
+titleLabel.innerText = "Title";
+
+const titleInput = document.createElement("input");
+titleInput.setAttribute("class", "title_input");
+titlejDiv.appendChild(titleInput);
+
+const messFill = document.createElement("span");
+messFill.setAttribute("class", "message");
+titlejDiv.appendChild(messFill);
+
+// Title>
+
+// <Description
+
+const deskDiv = document.createElement("div");
+deskDiv.setAttribute("class", "desk_div");
+addTaskCard.appendChild(deskDiv);
+
+const deskLabel = document.createElement("label");
+deskLabel.setAttribute("class", "desk_label");
+deskDiv.appendChild(deskLabel);
+titleLabel.innerText = "Title";
+
+const deskInput = document.createElement("input");
+titleInput.setAttribute("class", "desk_input");
+deskDiv.appendChild(titleInput);
+
+const messFill1 = document.createElement("span");
+messFill1.setAttribute("class", "message");
+deskDiv.appendChild(messFill1);
+
+// Desctiption>
+
+// <Status
+
+const statusDiv = document.createElement("div");
+statusDiv.setAttribute("class", "title_div");
+addTaskCard.appendChild(statusDiv);
+
+const statusLabel = document.createElement("label");
+statusLabel.setAttribute("class", "title_label");
+statusDiv.appendChild(statusLabel);
+statusLabel.innerText = "Title";
+
+const statusInput = document.createElement("input");
+statusInput.setAttribute("class", "title_input");
+statusDiv.appendChild(statusInput);
+
+const messFill2 = document.createElement("span");
+messFill2.setAttribute("class", "message");
+statusDiv.appendChild(messFill2);
+
+// Status>
+
+// <Priority
+
+const proiDiv = document.createElement("div");
+proiDiv.setAttribute("class", "desk_div");
+addTaskCard.appendChild(proiDiv);
+
+const proiLabel = document.createElement("label");
+proiLabel.setAttribute("class", "desk_label");
+proiDiv.appendChild(proiLabel);
+titleLabel.innerText = "Title";
+
+const proiInput = document.createElement("input");
+proiInput.setAttribute("class", "desk_input");
+proiDiv.appendChild(proiInput);
+
+const messFill3 = document.createElement("span");
+messFill3.setAttribute("class", "message");
+proiDiv.appendChild(messFill3);
+
+// Priority>

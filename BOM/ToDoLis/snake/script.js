@@ -59,7 +59,7 @@ function startGame() {
   interval = setInterval(() => {
     moveSnake(snakePos);
     drawSnake(snakePos);
-  }, 500);
+  }, 100);
 }
 function stopGame() {
   clearInterval(interval);

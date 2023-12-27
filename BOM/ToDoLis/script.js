@@ -34,9 +34,14 @@ todoHead.appendChild(countTask1);
 
 countTask1.innerHTML = todoArr.length;
 
+const statusCardContainerTd = document.createElement("div");
+statusCardContainerTd.setAttribute("class", "status_container");
+todoCard.appendChild(statusCardContainerTd);
+
 const addButton = document.createElement("div");
 addButton.setAttribute("class", "add_btn");
 todoCard.appendChild(addButton);
+addButton.addEventListener("click", showAddTask);
 
 const addIcon = document.createElement("img");
 addIcon.setAttribute(
@@ -73,9 +78,14 @@ countTask2.setAttribute("class", "count_task");
 progressHead.appendChild(countTask2);
 countTask2.innerHTML = progressArr.length;
 
+const statusCardContainerIp = document.createElement("div");
+statusCardContainerIp.setAttribute("class", "status_container");
+inProgressCard.appendChild(statusCardContainerIp);
+
 const addButton1 = document.createElement("div");
 addButton1.setAttribute("class", "add_btn");
 inProgressCard.appendChild(addButton1);
+addButton1.addEventListener("click", showAddTask);
 
 const addIcon1 = document.createElement("img");
 addIcon1.setAttribute(
@@ -112,9 +122,14 @@ countTask3.setAttribute("class", "count_task");
 stuckHead.appendChild(countTask3);
 countTask3.innerHTML = stuckArr.length;
 
+const statusCardContainerStu = document.createElement("div");
+statusCardContainerStu.setAttribute("class", "status_container");
+stuckCard.appendChild(statusCardContainerStu);
+
 const addButton2 = document.createElement("div");
 addButton2.setAttribute("class", "add_btn");
 stuckCard.appendChild(addButton2);
+addButton2.addEventListener("click", showAddTask);
 
 const addIcon2 = document.createElement("img");
 addIcon2.setAttribute(
@@ -151,9 +166,14 @@ countTask4.setAttribute("class", "count_task");
 doneHead.appendChild(countTask4);
 countTask4.innerHTML = doneArr.length;
 
+const statusCardContainerDone = document.createElement("div");
+statusCardContainerDone.setAttribute("class", "status_container");
+doneCard.appendChild(statusCardContainerDone);
+
 const addButton3 = document.createElement("div");
 addButton3.setAttribute("class", "add_btn");
 doneCard.appendChild(addButton3);
+addButton3.addEventListener("click", showAddTask);
 
 const addIcon3 = document.createElement("img");
 addIcon3.setAttribute(
@@ -169,97 +189,350 @@ addText3.innerHTML = "Add card";
 
 // Done Card>
 
-// Add Task card
+// Function
 
-const backDropActive = document.createElement("div");
-backDropActive.setAttribute("class", "backdrop_active");
+function showAddTask() {
+  // Add Task card
 
-const addTaskCard = document.createElement("form");
-backDropActive.appendChild(addTaskCard);
+  const backDropActive = document.createElement("div");
+  backDropActive.setAttribute("class", "backdrop_active");
+  root.appendChild(backDropActive);
 
-const headAddTask = document.createElement("h1");
-addTaskCard.appendChild(headAddTask);
+  const showAdd = document.createElement("div");
+  showAdd.setAttribute("class", "show_addTask");
+  backDropActive.appendChild(showAdd);
 
-// <Title
+  const addTaskCard = document.createElement("form");
+  showAdd.appendChild(addTaskCard);
 
-const titlejDiv = document.createElement("div");
-titlejDiv.setAttribute("class", "title_div");
-addTaskCard.appendChild(titlejDiv);
+  const headAddTask = document.createElement("h1");
+  addTaskCard.appendChild(headAddTask);
+  headAddTask.innerHTML = "Add Task";
 
-const titleLabel = document.createElement("label");
-titleLabel.setAttribute("class", "title_label");
-titlejDiv.appendChild(titleLabel);
-titleLabel.innerText = "Title";
+  // <Title
 
-const titleInput = document.createElement("input");
-titleInput.setAttribute("class", "title_input");
-titlejDiv.appendChild(titleInput);
+  const titleDiv = document.createElement("div");
+  titleDiv.setAttribute("class", "title_div");
+  addTaskCard.appendChild(titleDiv);
 
-const messFill = document.createElement("span");
-messFill.setAttribute("class", "message");
-titlejDiv.appendChild(messFill);
+  const titleLabel = document.createElement("label");
+  titleLabel.setAttribute("class", "title_label");
+  titleDiv.appendChild(titleLabel);
+  titleLabel.innerText = "Title";
 
-// Title>
+  const titleInput = document.createElement("input");
+  titleInput.setAttribute("class", "title_input");
+  titleDiv.appendChild(titleInput);
 
-// <Description
+  const messFill = document.createElement("span");
+  messFill.setAttribute("class", "message");
+  titleDiv.appendChild(messFill);
 
-const deskDiv = document.createElement("div");
-deskDiv.setAttribute("class", "desk_div");
-addTaskCard.appendChild(deskDiv);
+  // Title>
 
-const deskLabel = document.createElement("label");
-deskLabel.setAttribute("class", "desk_label");
-deskDiv.appendChild(deskLabel);
-titleLabel.innerText = "Title";
+  // <Description
 
-const deskInput = document.createElement("input");
-titleInput.setAttribute("class", "desk_input");
-deskDiv.appendChild(titleInput);
+  const deskDiv = document.createElement("div");
+  deskDiv.setAttribute("class", "desk_div");
+  addTaskCard.appendChild(deskDiv);
 
-const messFill1 = document.createElement("span");
-messFill1.setAttribute("class", "message");
-deskDiv.appendChild(messFill1);
+  const deskLabel = document.createElement("label");
+  deskLabel.setAttribute("class", "desk_label");
+  deskDiv.appendChild(deskLabel);
+  deskLabel.innerText = "Description";
 
-// Desctiption>
+  const deskInput = document.createElement("input");
+  deskInput.setAttribute("class", "desk_input");
+  deskDiv.appendChild(deskInput);
 
-// <Status
+  const messFill1 = document.createElement("span");
+  messFill1.setAttribute("class", "message");
+  deskDiv.appendChild(messFill1);
 
-const statusDiv = document.createElement("div");
-statusDiv.setAttribute("class", "title_div");
-addTaskCard.appendChild(statusDiv);
+  // Desctiption>
 
-const statusLabel = document.createElement("label");
-statusLabel.setAttribute("class", "title_label");
-statusDiv.appendChild(statusLabel);
-statusLabel.innerText = "Title";
+  // <Status
 
-const statusInput = document.createElement("input");
-statusInput.setAttribute("class", "title_input");
-statusDiv.appendChild(statusInput);
+  const statusDiv = document.createElement("div");
+  statusDiv.setAttribute("class", "status_div");
+  addTaskCard.appendChild(statusDiv);
 
-const messFill2 = document.createElement("span");
-messFill2.setAttribute("class", "message");
-statusDiv.appendChild(messFill2);
+  const statusLabel = document.createElement("label");
+  statusLabel.setAttribute("class", "status_label");
+  statusDiv.appendChild(statusLabel);
+  statusLabel.innerText = "Status";
 
-// Status>
+  const statusInput = document.createElement("input");
+  statusInput.setAttribute("class", "status_input");
+  statusDiv.appendChild(statusInput);
 
-// <Priority
+  const messFill2 = document.createElement("span");
+  messFill2.setAttribute("class", "message");
+  statusDiv.appendChild(messFill2);
 
-const proiDiv = document.createElement("div");
-proiDiv.setAttribute("class", "desk_div");
-addTaskCard.appendChild(proiDiv);
+  // Status>
 
-const proiLabel = document.createElement("label");
-proiLabel.setAttribute("class", "desk_label");
-proiDiv.appendChild(proiLabel);
-titleLabel.innerText = "Title";
+  // <Priority
 
-const proiInput = document.createElement("input");
-proiInput.setAttribute("class", "desk_input");
-proiDiv.appendChild(proiInput);
+  const proiDiv = document.createElement("div");
+  proiDiv.setAttribute("class", "prio_div");
+  addTaskCard.appendChild(proiDiv);
 
-const messFill3 = document.createElement("span");
-messFill3.setAttribute("class", "message");
-proiDiv.appendChild(messFill3);
+  const proiLabel = document.createElement("label");
+  proiLabel.setAttribute("class", "prio_label");
+  proiDiv.appendChild(proiLabel);
+  proiLabel.innerText = "Priority";
 
-// Priority>
+  const proiInput = document.createElement("input");
+  proiInput.setAttribute("class", "prio_input");
+  proiDiv.appendChild(proiInput);
+
+  const messFill3 = document.createElement("span");
+  messFill3.setAttribute("class", "message");
+  proiDiv.appendChild(messFill3);
+
+  // Priority>
+
+  // <Add task button
+
+  const addTaskButton = document.createElement("button");
+  addTaskButton.setAttribute("class", "addTask_btn");
+  addTaskButton.innerText = "Add Task";
+  addTaskCard.appendChild(addTaskButton);
+
+  // Add task button>
+
+  backDropActive.style.display = "flex";
+}
+
+function addTaskToTodo() {
+  // <Added Task Card
+  const addedTaskCard = document.createElement("div");
+  addedTaskCard.setAttribute("class", "added_taskCard");
+
+  // Added Task Card>
+
+  // <Done check
+
+  const statusDoneCheck = document.createElement("div");
+  statusDoneCheck.setAttribute("class", "status_todone");
+  addedTaskCard.appendChild(statusDoneCheck);
+
+  const taskToDoneBtn = document.createElement("div");
+  taskToDoneBtn.setAttribute("class", "added_taskCard");
+  statusDoneCheck.appendChild(taskToDoneBtn);
+
+  // Done check>
+
+  // <Added Task content
+
+  const addedTaskContent = document.createElement("div");
+  addedTaskContent.setAttribute("class", "added_taskContent");
+  addedTaskCard.appendChild(addedTaskContent);
+
+  const addedTaskHead = document.createElement("h4");
+  addedTaskHead.setAttribute("class", "added_taskHead");
+  addedTaskContent.appendChild(addedTaskHead);
+
+  const addedTaskText = document.createElement("p");
+  addedTaskText.setAttribute("class", "added_tasktext");
+  addedTaskContent.appendChild(addedTaskText);
+
+  const priorityBox = document.createElement("h4");
+  priorityBox.setAttribute("class", "added_taskPrioBox");
+  addedTaskContent.appendChild(priorityBox);
+
+  // Added Task content>
+
+  // <Edit and Delete Button
+
+  const editDeleteBtn = document.createElement("div");
+  editDeleteBtn.setAttribute("class", "edit_delete");
+  addedTaskCard.appendChild(editDeleteBtn);
+
+  const deleteBtn = document.createElement("div");
+  deleteBtn.setAttribute("class", "delete_btn");
+  editDeleteBtn.appendChild(deleteBtn);
+
+  const editBtn = document.createElement("div");
+  editBtn.setAttribute("class", "edit_btn");
+  editDeleteBtn.appendChild(editBtn);
+
+  // Edit and Delete Button>
+
+  todoCard.appendChild(addedTaskCard);
+}
+
+function addTaskToInProgress() {
+  // <Added Task Card
+  const addedTaskCard = document.createElement("div");
+  addedTaskCard.setAttribute("class", "added_taskCard");
+
+  // Added Task Card>
+
+  // <Done check
+
+  const statusDoneCheck = document.createElement("div");
+  statusDoneCheck.setAttribute("class", "status_todone");
+  addedTaskCard.appendChild(statusDoneCheck);
+
+  const taskToDoneBtn = document.createElement("div");
+  taskToDoneBtn.setAttribute("class", "added_taskCard");
+  statusDoneCheck.appendChild(taskToDoneBtn);
+
+  // Done check>
+
+  // <Added Task content
+
+  const addedTaskContent = document.createElement("div");
+  addedTaskContent.setAttribute("class", "added_taskContent");
+  addedTaskCard.appendChild(addedTaskContent);
+
+  const addedTaskHead = document.createElement("h4");
+  addedTaskHead.setAttribute("class", "added_taskHead");
+  addedTaskContent.appendChild(addedTaskHead);
+
+  const addedTaskText = document.createElement("p");
+  addedTaskText.setAttribute("class", "added_tasktext");
+  addedTaskContent.appendChild(addedTaskText);
+
+  const priorityBox = document.createElement("h4");
+  priorityBox.setAttribute("class", "added_taskPrioBox");
+  addedTaskContent.appendChild(priorityBox);
+
+  // Added Task content>
+
+  // <Edit and Delete Button
+
+  const editDeleteBtn = document.createElement("div");
+  editDeleteBtn.setAttribute("class", "edit_delete");
+  addedTaskCard.appendChild(editDeleteBtn);
+
+  const deleteBtn = document.createElement("div");
+  deleteBtn.setAttribute("class", "delete_btn");
+  editDeleteBtn.appendChild(deleteBtn);
+
+  const editBtn = document.createElement("div");
+  editBtn.setAttribute("class", "edit_btn");
+  editDeleteBtn.appendChild(editBtn);
+
+  // Edit and Delete Button>
+
+  inProgressCard.appendChild(addedTaskCard);
+}
+
+function addTaskToStuck() {
+  // <Added Task Card
+  const addedTaskCard = document.createElement("div");
+  addedTaskCard.setAttribute("class", "added_taskCard");
+
+  // Added Task Card>
+
+  // <Done check
+
+  const statusDoneCheck = document.createElement("div");
+  statusDoneCheck.setAttribute("class", "status_todone");
+  addedTaskCard.appendChild(statusDoneCheck);
+
+  const taskToDoneBtn = document.createElement("div");
+  taskToDoneBtn.setAttribute("class", "added_taskCard");
+  statusDoneCheck.appendChild(taskToDoneBtn);
+
+  // Done check>
+
+  // <Added Task content
+
+  const addedTaskContent = document.createElement("div");
+  addedTaskContent.setAttribute("class", "added_taskContent");
+  addedTaskCard.appendChild(addedTaskContent);
+
+  const addedTaskHead = document.createElement("h4");
+  addedTaskHead.setAttribute("class", "added_taskHead");
+  addedTaskContent.appendChild(addedTaskHead);
+
+  const addedTaskText = document.createElement("p");
+  addedTaskText.setAttribute("class", "added_tasktext");
+  addedTaskContent.appendChild(addedTaskText);
+
+  const priorityBox = document.createElement("h4");
+  priorityBox.setAttribute("class", "added_taskPrioBox");
+  addedTaskContent.appendChild(priorityBox);
+
+  // Added Task content>
+
+  // <Edit and Delete Button
+
+  const editDeleteBtn = document.createElement("div");
+  editDeleteBtn.setAttribute("class", "edit_delete");
+  addedTaskCard.appendChild(editDeleteBtn);
+
+  const deleteBtn = document.createElement("div");
+  deleteBtn.setAttribute("class", "delete_btn");
+  editDeleteBtn.appendChild(deleteBtn);
+
+  const editBtn = document.createElement("div");
+  editBtn.setAttribute("class", "edit_btn");
+  editDeleteBtn.appendChild(editBtn);
+
+  // Edit and Delete Button>
+
+  stuckCard.appendChild(addedTaskCard);
+}
+
+function addTaskToDone() {
+  // <Added Task Card
+  const addedTaskCard = document.createElement("div");
+  addedTaskCard.setAttribute("class", "added_taskCard");
+
+  // Added Task Card>
+
+  // <Done check
+
+  const statusDoneCheck = document.createElement("div");
+  statusDoneCheck.setAttribute("class", "status_todone");
+  addedTaskCard.appendChild(statusDoneCheck);
+
+  const taskToDoneBtn = document.createElement("div");
+  taskToDoneBtn.setAttribute("class", "added_taskCard");
+  statusDoneCheck.appendChild(taskToDoneBtn);
+
+  // Done check>
+
+  // <Added Task content
+
+  const addedTaskContent = document.createElement("div");
+  addedTaskContent.setAttribute("class", "added_taskContent");
+  addedTaskCard.appendChild(addedTaskContent);
+
+  const addedTaskHead = document.createElement("h4");
+  addedTaskHead.setAttribute("class", "added_taskHead");
+  addedTaskContent.appendChild(addedTaskHead);
+
+  const addedTaskText = document.createElement("p");
+  addedTaskText.setAttribute("class", "added_tasktext");
+  addedTaskContent.appendChild(addedTaskText);
+
+  const priorityBox = document.createElement("h4");
+  priorityBox.setAttribute("class", "added_taskPrioBox");
+  addedTaskContent.appendChild(priorityBox);
+
+  // Added Task content>
+
+  // <Edit and Delete Button
+
+  const editDeleteBtn = document.createElement("div");
+  editDeleteBtn.setAttribute("class", "edit_delete");
+  addedTaskCard.appendChild(editDeleteBtn);
+
+  const deleteBtn = document.createElement("div");
+  deleteBtn.setAttribute("class", "delete_btn");
+  editDeleteBtn.appendChild(deleteBtn);
+
+  const editBtn = document.createElement("div");
+  editBtn.setAttribute("class", "edit_btn");
+  editDeleteBtn.appendChild(editBtn);
+
+  // Edit and Delete Button>
+
+  doneCard.appendChild(addedTaskCard);
+}

@@ -241,8 +241,10 @@ function showAddTask() {
   deskDiv.appendChild(deskLabel);
   deskLabel.innerText = "Description";
 
-  const deskInput = document.createElement("input");
+  const deskInput = document.createElement("textarea");
   deskInput.setAttribute("class", "desk_input");
+  deskInput.setAttribute("rows", "5");
+  deskInput.setAttribute("cols", "70");
   deskDiv.appendChild(deskInput);
 
   const messFill1 = document.createElement("span");
@@ -262,9 +264,29 @@ function showAddTask() {
   statusDiv.appendChild(statusLabel);
   statusLabel.innerText = "Status";
 
-  const statusInput = document.createElement("input");
+  const statusInput = document.createElement("select");
   statusInput.setAttribute("class", "status_input");
   statusDiv.appendChild(statusInput);
+
+  const statusOption1 = document.createElement("option");
+  statusOption1.setAttribute("value", "todo");
+  statusOption1.innerHTML = "To do";
+  statusInput.appendChild(statusOption1);
+
+  const statusOption2 = document.createElement("option");
+  statusOption2.setAttribute("value", "inprogress");
+  statusOption2.innerHTML = "In progress";
+  statusInput.appendChild(statusOption2);
+
+  const statusOption3 = document.createElement("option");
+  statusOption3.setAttribute("value", "stuck");
+  statusOption3.innerHTML = "Stuck";
+  statusInput.appendChild(statusOption3);
+
+  const statusOption4 = document.createElement("option");
+  statusOption4.setAttribute("value", "done");
+  statusOption4.innerHTML = "Done";
+  statusInput.appendChild(statusOption4);
 
   const messFill2 = document.createElement("span");
   messFill2.setAttribute("class", "message");
@@ -283,9 +305,24 @@ function showAddTask() {
   proiDiv.appendChild(proiLabel);
   proiLabel.innerText = "Priority";
 
-  const proiInput = document.createElement("input");
+  const proiInput = document.createElement("select");
   proiInput.setAttribute("class", "prio_input");
   proiDiv.appendChild(proiInput);
+
+  const priorityOption1 = document.createElement("option");
+  priorityOption1.setAttribute("value", "low");
+  priorityOption1.innerHTML = "Low";
+  proiInput.appendChild(priorityOption1);
+
+  const priorityOption2 = document.createElement("option");
+  priorityOption2.setAttribute("value", "Medium");
+  priorityOption2.innerHTML = "Medium";
+  proiInput.appendChild(priorityOption2);
+
+  const priorityOption3 = document.createElement("option");
+  priorityOption3.setAttribute("value", "high");
+  priorityOption3.innerHTML = "High";
+  proiInput.appendChild(priorityOption3);
 
   const messFill3 = document.createElement("span");
   messFill3.setAttribute("class", "message");
@@ -299,6 +336,7 @@ function showAddTask() {
   addTaskButton.setAttribute("class", "addTask_btn");
   addTaskButton.innerText = "Add Task";
   addTaskCard.appendChild(addTaskButton);
+  addTaskButton.addEventListener("click", addTaskToTodo);
 
   // Add task button>
 
@@ -338,7 +376,7 @@ function addTaskToTodo() {
   addedTaskText.setAttribute("class", "added_tasktext");
   addedTaskContent.appendChild(addedTaskText);
 
-  const priorityBox = document.createElement("h4");
+  const priorityBox = document.createElement("div");
   priorityBox.setAttribute("class", "added_taskPrioBox");
   addedTaskContent.appendChild(priorityBox);
 
@@ -396,7 +434,7 @@ function addTaskToInProgress() {
   addedTaskText.setAttribute("class", "added_tasktext");
   addedTaskContent.appendChild(addedTaskText);
 
-  const priorityBox = document.createElement("h4");
+  const priorityBox = document.createElement("div");
   priorityBox.setAttribute("class", "added_taskPrioBox");
   addedTaskContent.appendChild(priorityBox);
 
@@ -454,7 +492,7 @@ function addTaskToStuck() {
   addedTaskText.setAttribute("class", "added_tasktext");
   addedTaskContent.appendChild(addedTaskText);
 
-  const priorityBox = document.createElement("h4");
+  const priorityBox = document.createElement("div");
   priorityBox.setAttribute("class", "added_taskPrioBox");
   addedTaskContent.appendChild(priorityBox);
 
@@ -512,7 +550,7 @@ function addTaskToDone() {
   addedTaskText.setAttribute("class", "added_tasktext");
   addedTaskContent.appendChild(addedTaskText);
 
-  const priorityBox = document.createElement("h4");
+  const priorityBox = document.createElement("div");
   priorityBox.setAttribute("class", "added_taskPrioBox");
   addedTaskContent.appendChild(priorityBox);
 

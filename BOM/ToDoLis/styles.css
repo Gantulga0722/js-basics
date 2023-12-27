@@ -106,14 +106,17 @@ img {
   padding: 8px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  resize: none;
   height: 100px;
+  display: flex;
+
+  text-align: start;
 }
 .status_input {
   width: 100%;
   padding: 8px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: visible;
 }
 .prio_input {
   width: 100%;
@@ -134,4 +137,63 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.added_taskCard {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: white;
+  cursor: grab;
+  display: flex;
+  gap: 12px;
+  font-family: "Roboto", sans-serif;
+  cursor: grab;
+}
+.status_todone {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.added_taskContent {
+  flex: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.added_taskPrioBox {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+.edit_delete {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.delete_btn {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.edit_btn {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
 }

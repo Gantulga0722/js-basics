@@ -332,17 +332,34 @@ function showAddTask() {
 
   // <Add task button
 
-  const addTaskButton = document.createElement("button");
+  const addTaskButton = document.createElement("input");
+  addTaskButton.setAttribute("type", "button");
   addTaskButton.setAttribute("class", "addTask_btn");
   addTaskButton.innerText = "Add Task";
   addTaskCard.appendChild(addTaskButton);
-  addTaskButton.addEventListener("click", addTaskToTodo);
+  addTaskButton.addEventListener("click", addTaskToStages);
 
   // Add task button>
 
   backDropActive.style.display = "flex";
-}
 
+  function addTaskToStages() {
+    // if (statusOption1.innerHTML == "To do") {
+    //   addTaskToTodo();
+    // }
+    switch (statusInput.value) {
+      case "inprogress": {
+        progressArr.push({
+          title: titleInput.value,
+          description: deskInput.value,
+        });
+      }
+    }
+    //display none
+    //draw all divs of every column of todos
+    console.log({ progressArr });
+  }
+}
 function addTaskToTodo() {
   // <Added Task Card
   const addedTaskCard = document.createElement("div");
@@ -356,8 +373,11 @@ function addTaskToTodo() {
   statusDoneCheck.setAttribute("class", "status_todone");
   addedTaskCard.appendChild(statusDoneCheck);
 
-  const taskToDoneBtn = document.createElement("div");
-  taskToDoneBtn.setAttribute("class", "added_taskCard");
+  const taskToDoneBtn = document.createElement("img");
+  taskToDoneBtn.setAttribute(
+    "src",
+    "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
+  );
   statusDoneCheck.appendChild(taskToDoneBtn);
 
   // Done check>
@@ -372,13 +392,19 @@ function addTaskToTodo() {
   addedTaskHead.setAttribute("class", "added_taskHead");
   addedTaskContent.appendChild(addedTaskHead);
 
+  addedTaskHead.innerHTML = titleInput.value;
+
   const addedTaskText = document.createElement("p");
   addedTaskText.setAttribute("class", "added_tasktext");
   addedTaskContent.appendChild(addedTaskText);
 
+  addedTaskText.innerText = deskInput.value;
+
   const priorityBox = document.createElement("div");
   priorityBox.setAttribute("class", "added_taskPrioBox");
   addedTaskContent.appendChild(priorityBox);
+
+  priorityBox.innerHTML = proiInput.value;
 
   // Added Task content>
 
@@ -391,6 +417,7 @@ function addTaskToTodo() {
   const deleteBtn = document.createElement("div");
   deleteBtn.setAttribute("class", "delete_btn");
   editDeleteBtn.appendChild(deleteBtn);
+  deleteBtn.innerText = "X";
 
   const editBtn = document.createElement("div");
   editBtn.setAttribute("class", "edit_btn");
@@ -398,7 +425,7 @@ function addTaskToTodo() {
 
   // Edit and Delete Button>
 
-  todoCard.appendChild(addedTaskCard);
+  statusCardContainerTd.appendChild(addedTaskCard);
 }
 
 function addTaskToInProgress() {

@@ -41,7 +41,6 @@ function addTask() {
   arr[arr.length] = taskInput.value;
   taskInput.value = "";
   tasksContainer.innerHTML = "";
-  console.log(arr);
   for (let i = 0; i < arr.length; i++) {
     const taskDiv = document.createElement("div");
     taskDiv.setAttribute("class", "added_task");

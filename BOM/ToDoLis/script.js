@@ -335,7 +335,7 @@ function showAddTask() {
   const addTaskButton = document.createElement("input");
   addTaskButton.setAttribute("type", "button");
   addTaskButton.setAttribute("class", "addTask_btn");
-  addTaskButton.innerText = "Add Task";
+  addTaskButton.value = "Add Task";
   addTaskCard.appendChild(addTaskButton);
   addTaskButton.addEventListener("click", addTaskToStages);
 
@@ -347,257 +347,304 @@ function showAddTask() {
     // if (statusOption1.innerHTML == "To do") {
     //   addTaskToTodo();
     // }
+
     switch (statusInput.value) {
-      case "inprogress": {
+      case "todo":
+        todoArr.push({
+          title: titleInput.value,
+          description: deskInput.value,
+          priority: proiInput.value,
+        });
+        todoArr.map((task) => {
+          const addedTaskCard = document.createElement("div");
+          addedTaskCard.setAttribute("class", "added_taskCard");
+
+          const statusDoneCheck = document.createElement("div");
+          statusDoneCheck.setAttribute("class", "status_todone");
+          addedTaskCard.appendChild(statusDoneCheck);
+
+          const taskToDoneBtn = document.createElement("img");
+          taskToDoneBtn.setAttribute(
+            "src",
+            "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
+          );
+          statusDoneCheck.appendChild(taskToDoneBtn);
+
+          // <Added Task content
+
+          const addedTaskContent = document.createElement("div");
+          addedTaskContent.setAttribute("class", "added_taskContent");
+          addedTaskCard.appendChild(addedTaskContent);
+
+          const addedTaskHead = document.createElement("h4");
+          addedTaskHead.setAttribute("class", "added_taskHead");
+          addedTaskContent.appendChild(addedTaskHead);
+
+          addedTaskHead.innerHTML = task.title;
+
+          const addedTaskText = document.createElement("p");
+          addedTaskText.setAttribute("class", "added_tasktext");
+          addedTaskContent.appendChild(addedTaskText);
+
+          addedTaskText.innerText = task.description;
+
+          const priorityBox = document.createElement("div");
+          priorityBox.setAttribute("class", "added_taskPrioBox");
+          addedTaskContent.appendChild(priorityBox);
+
+          priorityBox.innerHTML = task.priority;
+
+          // Added Task content>
+
+          // <Edit and Delete Button
+
+          const editDeleteBtn = document.createElement("div");
+          editDeleteBtn.setAttribute("class", "edit_delete");
+          addedTaskCard.appendChild(editDeleteBtn);
+
+          const deleteBtn = document.createElement("div");
+          deleteBtn.setAttribute("class", "delete_btn");
+          editDeleteBtn.appendChild(deleteBtn);
+          deleteBtn.innerHTML = "X";
+
+          const editBtn = document.createElement("div");
+          editBtn.setAttribute("class", "edit_btn");
+          editDeleteBtn.appendChild(editBtn);
+
+          const editImg = document.createElement("img");
+          editImg.setAttribute(
+            "src",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
+          );
+
+          // Edit and Delete Button>
+
+          statusCardContainerTd.appendChild(addedTaskCard);
+        });
+        break;
+      case "inprogress":
         progressArr.push({
           title: titleInput.value,
           description: deskInput.value,
+          priority: proiInput.value,
         });
-      }
+        progressArr.map((task) => {
+          const addedTaskCard = document.createElement("div");
+          addedTaskCard.setAttribute("class", "added_taskCard");
+
+          const statusDoneCheck = document.createElement("div");
+          statusDoneCheck.setAttribute("class", "status_todone");
+          addedTaskCard.appendChild(statusDoneCheck);
+
+          const taskToDoneBtn = document.createElement("img");
+          taskToDoneBtn.setAttribute(
+            "src",
+            "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
+          );
+          statusDoneCheck.appendChild(taskToDoneBtn);
+
+          // <Added Task content
+
+          const addedTaskContent = document.createElement("div");
+          addedTaskContent.setAttribute("class", "added_taskContent");
+          addedTaskCard.appendChild(addedTaskContent);
+
+          const addedTaskHead = document.createElement("h4");
+          addedTaskHead.setAttribute("class", "added_taskHead");
+          addedTaskContent.appendChild(addedTaskHead);
+
+          addedTaskHead.innerHTML = task.title;
+
+          const addedTaskText = document.createElement("p");
+          addedTaskText.setAttribute("class", "added_tasktext");
+          addedTaskContent.appendChild(addedTaskText);
+
+          addedTaskText.innerText = task.description;
+
+          const priorityBox = document.createElement("div");
+          priorityBox.setAttribute("class", "added_taskPrioBox");
+          addedTaskContent.appendChild(priorityBox);
+
+          priorityBox.innerHTML = task.priority;
+
+          // Added Task content>
+
+          // <Edit and Delete Button
+
+          const editDeleteBtn = document.createElement("div");
+          editDeleteBtn.setAttribute("class", "edit_delete");
+          addedTaskCard.appendChild(editDeleteBtn);
+
+          const deleteBtn = document.createElement("div");
+          deleteBtn.setAttribute("class", "delete_btn");
+          editDeleteBtn.appendChild(deleteBtn);
+          deleteBtn.innerHTML = "X";
+
+          const editBtn = document.createElement("div");
+          editBtn.setAttribute("class", "edit_btn");
+          editDeleteBtn.appendChild(editBtn);
+
+          const editImg = document.createElement("img");
+          editImg.setAttribute(
+            "src",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
+          );
+
+          // Edit and Delete Button>
+
+          statusCardContainerIp.appendChild(addedTaskCard);
+        });
+
+        break;
+      case "stuck":
+        stuckArr.push({
+          title: titleInput.value,
+          description: deskInput.value,
+          priority: proiInput.value,
+        });
+        stuckArr.map((task) => {
+          const addedTaskCard = document.createElement("div");
+          addedTaskCard.setAttribute("class", "added_taskCard");
+
+          const statusDoneCheck = document.createElement("div");
+          statusDoneCheck.setAttribute("class", "status_todone");
+          addedTaskCard.appendChild(statusDoneCheck);
+
+          const taskToDoneBtn = document.createElement("img");
+          taskToDoneBtn.setAttribute(
+            "src",
+            "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
+          );
+          statusDoneCheck.appendChild(taskToDoneBtn);
+
+          // <Added Task content
+
+          const addedTaskContent = document.createElement("div");
+          addedTaskContent.setAttribute("class", "added_taskContent");
+          addedTaskCard.appendChild(addedTaskContent);
+
+          const addedTaskHead = document.createElement("h4");
+          addedTaskHead.setAttribute("class", "added_taskHead");
+          addedTaskContent.appendChild(addedTaskHead);
+
+          addedTaskHead.innerHTML = task.title;
+
+          const addedTaskText = document.createElement("p");
+          addedTaskText.setAttribute("class", "added_tasktext");
+          addedTaskContent.appendChild(addedTaskText);
+
+          addedTaskText.innerText = task.description;
+
+          const priorityBox = document.createElement("div");
+          priorityBox.setAttribute("class", "added_taskPrioBox");
+          addedTaskContent.appendChild(priorityBox);
+
+          priorityBox.innerHTML = task.priority;
+
+          // Added Task content>
+
+          // <Edit and Delete Button
+
+          const editDeleteBtn = document.createElement("div");
+          editDeleteBtn.setAttribute("class", "edit_delete");
+          addedTaskCard.appendChild(editDeleteBtn);
+
+          const deleteBtn = document.createElement("div");
+          deleteBtn.setAttribute("class", "delete_btn");
+          editDeleteBtn.appendChild(deleteBtn);
+          deleteBtn.innerHTML = "X";
+
+          const editBtn = document.createElement("div");
+          editBtn.setAttribute("class", "edit_btn");
+          editDeleteBtn.appendChild(editBtn);
+
+          const editImg = document.createElement("img");
+          editImg.setAttribute(
+            "src",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
+          );
+
+          // Edit and Delete Button>
+
+          statusCardContainerStu.appendChild(addedTaskCard);
+        });
+
+        break;
+      case "done":
+        doneArr.push({
+          title: titleInput.value,
+          description: deskInput.value,
+          priority: proiInput.value,
+        });
+        doneArr.map((task) => {
+          const addedTaskCard = document.createElement("div");
+          addedTaskCard.setAttribute("class", "added_taskCard");
+
+          const statusDoneCheck = document.createElement("div");
+          statusDoneCheck.setAttribute("class", "status_todone");
+          addedTaskCard.appendChild(statusDoneCheck);
+
+          const taskToDoneBtn = document.createElement("img");
+          taskToDoneBtn.setAttribute(
+            "src",
+            "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
+          );
+          statusDoneCheck.appendChild(taskToDoneBtn);
+
+          // <Added Task content
+
+          const addedTaskContent = document.createElement("div");
+          addedTaskContent.setAttribute("class", "added_taskContent");
+          addedTaskCard.appendChild(addedTaskContent);
+
+          const addedTaskHead = document.createElement("h4");
+          addedTaskHead.setAttribute("class", "added_taskHead");
+          addedTaskContent.appendChild(addedTaskHead);
+
+          addedTaskHead.innerHTML = task.title;
+
+          const addedTaskText = document.createElement("p");
+          addedTaskText.setAttribute("class", "added_tasktext");
+          addedTaskContent.appendChild(addedTaskText);
+
+          addedTaskText.innerText = task.description;
+
+          const priorityBox = document.createElement("div");
+          priorityBox.setAttribute("class", "added_taskPrioBox");
+          addedTaskContent.appendChild(priorityBox);
+
+          priorityBox.innerHTML = task.priority;
+
+          // Added Task content>
+
+          // <Edit and Delete Button
+
+          const editDeleteBtn = document.createElement("div");
+          editDeleteBtn.setAttribute("class", "edit_delete");
+          addedTaskCard.appendChild(editDeleteBtn);
+
+          const deleteBtn = document.createElement("div");
+          deleteBtn.setAttribute("class", "delete_btn");
+          editDeleteBtn.appendChild(deleteBtn);
+          deleteBtn.innerHTML = "X";
+
+          const editBtn = document.createElement("div");
+          editBtn.setAttribute("class", "edit_btn");
+          editDeleteBtn.appendChild(editBtn);
+
+          const editImg = document.createElement("img");
+          editImg.setAttribute(
+            "src",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
+          );
+
+          // Edit and Delete Button>
+
+          statusCardContainerDone.appendChild(addedTaskCard);
+        });
+        break;
     }
-    //display none
+    backDropActive.style.display = "none";
     //draw all divs of every column of todos
-    console.log({ progressArr });
   }
-}
-function addTaskToTodo() {
-  // <Added Task Card
-  const addedTaskCard = document.createElement("div");
-  addedTaskCard.setAttribute("class", "added_taskCard");
-
-  // Added Task Card>
-
-  // <Done check
-
-  const statusDoneCheck = document.createElement("div");
-  statusDoneCheck.setAttribute("class", "status_todone");
-  addedTaskCard.appendChild(statusDoneCheck);
-
-  const taskToDoneBtn = document.createElement("img");
-  taskToDoneBtn.setAttribute(
-    "src",
-    "https://w7.pngwing.com/pngs/405/55/png-transparent-checked-logo-check-mark-green-check-angle-leaf-triangle.png"
-  );
-  statusDoneCheck.appendChild(taskToDoneBtn);
-
-  // Done check>
-
-  // <Added Task content
-
-  const addedTaskContent = document.createElement("div");
-  addedTaskContent.setAttribute("class", "added_taskContent");
-  addedTaskCard.appendChild(addedTaskContent);
-
-  const addedTaskHead = document.createElement("h4");
-  addedTaskHead.setAttribute("class", "added_taskHead");
-  addedTaskContent.appendChild(addedTaskHead);
-
-  addedTaskHead.innerHTML = titleInput.value;
-
-  const addedTaskText = document.createElement("p");
-  addedTaskText.setAttribute("class", "added_tasktext");
-  addedTaskContent.appendChild(addedTaskText);
-
-  addedTaskText.innerText = deskInput.value;
-
-  const priorityBox = document.createElement("div");
-  priorityBox.setAttribute("class", "added_taskPrioBox");
-  addedTaskContent.appendChild(priorityBox);
-
-  priorityBox.innerHTML = proiInput.value;
-
-  // Added Task content>
-
-  // <Edit and Delete Button
-
-  const editDeleteBtn = document.createElement("div");
-  editDeleteBtn.setAttribute("class", "edit_delete");
-  addedTaskCard.appendChild(editDeleteBtn);
-
-  const deleteBtn = document.createElement("div");
-  deleteBtn.setAttribute("class", "delete_btn");
-  editDeleteBtn.appendChild(deleteBtn);
-  deleteBtn.innerText = "X";
-
-  const editBtn = document.createElement("div");
-  editBtn.setAttribute("class", "edit_btn");
-  editDeleteBtn.appendChild(editBtn);
-
-  // Edit and Delete Button>
-
-  statusCardContainerTd.appendChild(addedTaskCard);
-}
-
-function addTaskToInProgress() {
-  // <Added Task Card
-  const addedTaskCard = document.createElement("div");
-  addedTaskCard.setAttribute("class", "added_taskCard");
-
-  // Added Task Card>
-
-  // <Done check
-
-  const statusDoneCheck = document.createElement("div");
-  statusDoneCheck.setAttribute("class", "status_todone");
-  addedTaskCard.appendChild(statusDoneCheck);
-
-  const taskToDoneBtn = document.createElement("div");
-  taskToDoneBtn.setAttribute("class", "added_taskCard");
-  statusDoneCheck.appendChild(taskToDoneBtn);
-
-  // Done check>
-
-  // <Added Task content
-
-  const addedTaskContent = document.createElement("div");
-  addedTaskContent.setAttribute("class", "added_taskContent");
-  addedTaskCard.appendChild(addedTaskContent);
-
-  const addedTaskHead = document.createElement("h4");
-  addedTaskHead.setAttribute("class", "added_taskHead");
-  addedTaskContent.appendChild(addedTaskHead);
-
-  const addedTaskText = document.createElement("p");
-  addedTaskText.setAttribute("class", "added_tasktext");
-  addedTaskContent.appendChild(addedTaskText);
-
-  const priorityBox = document.createElement("div");
-  priorityBox.setAttribute("class", "added_taskPrioBox");
-  addedTaskContent.appendChild(priorityBox);
-
-  // Added Task content>
-
-  // <Edit and Delete Button
-
-  const editDeleteBtn = document.createElement("div");
-  editDeleteBtn.setAttribute("class", "edit_delete");
-  addedTaskCard.appendChild(editDeleteBtn);
-
-  const deleteBtn = document.createElement("div");
-  deleteBtn.setAttribute("class", "delete_btn");
-  editDeleteBtn.appendChild(deleteBtn);
-
-  const editBtn = document.createElement("div");
-  editBtn.setAttribute("class", "edit_btn");
-  editDeleteBtn.appendChild(editBtn);
-
-  // Edit and Delete Button>
-
-  inProgressCard.appendChild(addedTaskCard);
-}
-
-function addTaskToStuck() {
-  // <Added Task Card
-  const addedTaskCard = document.createElement("div");
-  addedTaskCard.setAttribute("class", "added_taskCard");
-
-  // Added Task Card>
-
-  // <Done check
-
-  const statusDoneCheck = document.createElement("div");
-  statusDoneCheck.setAttribute("class", "status_todone");
-  addedTaskCard.appendChild(statusDoneCheck);
-
-  const taskToDoneBtn = document.createElement("div");
-  taskToDoneBtn.setAttribute("class", "added_taskCard");
-  statusDoneCheck.appendChild(taskToDoneBtn);
-
-  // Done check>
-
-  // <Added Task content
-
-  const addedTaskContent = document.createElement("div");
-  addedTaskContent.setAttribute("class", "added_taskContent");
-  addedTaskCard.appendChild(addedTaskContent);
-
-  const addedTaskHead = document.createElement("h4");
-  addedTaskHead.setAttribute("class", "added_taskHead");
-  addedTaskContent.appendChild(addedTaskHead);
-
-  const addedTaskText = document.createElement("p");
-  addedTaskText.setAttribute("class", "added_tasktext");
-  addedTaskContent.appendChild(addedTaskText);
-
-  const priorityBox = document.createElement("div");
-  priorityBox.setAttribute("class", "added_taskPrioBox");
-  addedTaskContent.appendChild(priorityBox);
-
-  // Added Task content>
-
-  // <Edit and Delete Button
-
-  const editDeleteBtn = document.createElement("div");
-  editDeleteBtn.setAttribute("class", "edit_delete");
-  addedTaskCard.appendChild(editDeleteBtn);
-
-  const deleteBtn = document.createElement("div");
-  deleteBtn.setAttribute("class", "delete_btn");
-  editDeleteBtn.appendChild(deleteBtn);
-
-  const editBtn = document.createElement("div");
-  editBtn.setAttribute("class", "edit_btn");
-  editDeleteBtn.appendChild(editBtn);
-
-  // Edit and Delete Button>
-
-  stuckCard.appendChild(addedTaskCard);
-}
-
-function addTaskToDone() {
-  // <Added Task Card
-  const addedTaskCard = document.createElement("div");
-  addedTaskCard.setAttribute("class", "added_taskCard");
-
-  // Added Task Card>
-
-  // <Done check
-
-  const statusDoneCheck = document.createElement("div");
-  statusDoneCheck.setAttribute("class", "status_todone");
-  addedTaskCard.appendChild(statusDoneCheck);
-
-  const taskToDoneBtn = document.createElement("div");
-  taskToDoneBtn.setAttribute("class", "added_taskCard");
-  statusDoneCheck.appendChild(taskToDoneBtn);
-
-  // Done check>
-
-  // <Added Task content
-
-  const addedTaskContent = document.createElement("div");
-  addedTaskContent.setAttribute("class", "added_taskContent");
-  addedTaskCard.appendChild(addedTaskContent);
-
-  const addedTaskHead = document.createElement("h4");
-  addedTaskHead.setAttribute("class", "added_taskHead");
-  addedTaskContent.appendChild(addedTaskHead);
-
-  const addedTaskText = document.createElement("p");
-  addedTaskText.setAttribute("class", "added_tasktext");
-  addedTaskContent.appendChild(addedTaskText);
-
-  const priorityBox = document.createElement("div");
-  priorityBox.setAttribute("class", "added_taskPrioBox");
-  addedTaskContent.appendChild(priorityBox);
-
-  // Added Task content>
-
-  // <Edit and Delete Button
-
-  const editDeleteBtn = document.createElement("div");
-  editDeleteBtn.setAttribute("class", "edit_delete");
-  addedTaskCard.appendChild(editDeleteBtn);
-
-  const deleteBtn = document.createElement("div");
-  deleteBtn.setAttribute("class", "delete_btn");
-  editDeleteBtn.appendChild(deleteBtn);
-
-  const editBtn = document.createElement("div");
-  editBtn.setAttribute("class", "edit_btn");
-  editDeleteBtn.appendChild(editBtn);
-
-  // Edit and Delete Button>
-
-  doneCard.appendChild(addedTaskCard);
 }

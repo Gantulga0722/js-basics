@@ -66,9 +66,9 @@
   font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
-img {
-  width: 25px;
-  height: 25px;
+.add_btn img {
+  width: 22px;
+  height: 22px;
 }
 .backdrop_active {
   position: absolute;
@@ -204,7 +204,11 @@ form {
   flex-direction: column;
   gap: 8px;
 }
-img {
-  width: 20px;
-  height: 20px;
+.status_todone img {
+  width: 15px;
+  height: 15px;
+}
+.edit_btn img {
+  width: 13px;
+  height: 13px;
 }

@@ -109,7 +109,6 @@ function addTask() {
 
     function deleteTask() {
       arr.splice(i, 1);
-      console.log(arr);
       updateArr();
     }
   }
@@ -187,7 +186,6 @@ function updateArr() {
 
     function deleteTask() {
       arr.splice(i, 1);
-      console.log(arr);
       updateArr();
     }
   }

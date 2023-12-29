@@ -405,7 +405,7 @@ function showAddTask() {
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
           editDeleteBtn.appendChild(deleteBtn);
-          deleteBtn.innerHTML = "X";
+          deleteBtn.innerHTML = "x";
 
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
@@ -416,9 +416,9 @@ function showAddTask() {
             "src",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
           );
-
+          editBtn.appendChild(editImg);
           // Edit and Delete Button>
-
+          countTask1.innerHTML = todoArr.length;
           statusCardContainerTd.appendChild(addedTaskCard);
         });
         break;
@@ -478,7 +478,7 @@ function showAddTask() {
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
           editDeleteBtn.appendChild(deleteBtn);
-          deleteBtn.innerHTML = "X";
+          deleteBtn.innerHTML = "x";
 
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
@@ -489,9 +489,9 @@ function showAddTask() {
             "src",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
           );
-
+          editBtn.appendChild(editImg);
           // Edit and Delete Button>
-
+          countTask2.innerHTML = progressArr.length;
           statusCardContainerIp.appendChild(addedTaskCard);
         });
 
@@ -552,7 +552,7 @@ function showAddTask() {
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
           editDeleteBtn.appendChild(deleteBtn);
-          deleteBtn.innerHTML = "X";
+          deleteBtn.innerHTML = "x";
 
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
@@ -563,9 +563,9 @@ function showAddTask() {
             "src",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
           );
-
+          editBtn.appendChild(editImg);
           // Edit and Delete Button>
-
+          countTask3.innerHTML = stuckArr.length;
           statusCardContainerStu.appendChild(addedTaskCard);
         });
 
@@ -626,7 +626,7 @@ function showAddTask() {
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
           editDeleteBtn.appendChild(deleteBtn);
-          deleteBtn.innerHTML = "X";
+          deleteBtn.innerHTML = "x";
 
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
@@ -637,9 +637,9 @@ function showAddTask() {
             "src",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"
           );
-
+          editBtn.appendChild(editImg);
           // Edit and Delete Button>
-
+          countTask4.innerHTML = doneArr.length;
           statusCardContainerDone.appendChild(addedTaskCard);
         });
         break;

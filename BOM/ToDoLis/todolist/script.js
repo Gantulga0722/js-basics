@@ -647,4 +647,6 @@ function showAddTask() {
     backDropActive.style.display = "none";
     //draw all divs of every column of todos
   }
+
+  
 }

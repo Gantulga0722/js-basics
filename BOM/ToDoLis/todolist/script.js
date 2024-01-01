@@ -475,6 +475,8 @@ function showAddTask() {
           editDeleteBtn.setAttribute("class", "edit_delete");
           addedTaskCard.appendChild(editDeleteBtn);
 
+          // deleteBtn.addEventListener("click", deleteOper);
+
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
           editDeleteBtn.appendChild(deleteBtn);
@@ -548,6 +550,8 @@ function showAddTask() {
           const editDeleteBtn = document.createElement("div");
           editDeleteBtn.setAttribute("class", "edit_delete");
           addedTaskCard.appendChild(editDeleteBtn);
+
+          // deleteBtn.addEventListener("click", deleteOper);
 
           const deleteBtn = document.createElement("div");
           deleteBtn.setAttribute("class", "delete_btn");
@@ -628,6 +632,8 @@ function showAddTask() {
           editDeleteBtn.appendChild(deleteBtn);
           deleteBtn.innerHTML = "x";
 
+          // deleteBtn.addEventListener("click", deleteOper);
+
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
           editDeleteBtn.appendChild(editBtn);
@@ -647,6 +653,4 @@ function showAddTask() {
     backDropActive.style.display = "none";
     //draw all divs of every column of todos
   }
-
-  
 }

@@ -357,6 +357,7 @@ function showAddTask() {
           description: deskInput.value,
           priority: proiInput.value,
         });
+
         todoArr.map((task) => {
           const addedTaskCard = document.createElement("div");
           addedTaskCard.setAttribute("class", "added_taskCard");
@@ -440,6 +441,7 @@ function showAddTask() {
           description: deskInput.value,
           priority: proiInput.value,
         });
+
         progressArr.map((task) => {
           const addedTaskCard = document.createElement("div");
           addedTaskCard.setAttribute("class", "added_taskCard");
@@ -526,6 +528,7 @@ function showAddTask() {
           description: deskInput.value,
           priority: proiInput.value,
         });
+
         stuckArr.map((task) => {
           const addedTaskCard = document.createElement("div");
           addedTaskCard.setAttribute("class", "added_taskCard");
@@ -612,6 +615,7 @@ function showAddTask() {
           description: deskInput.value,
           priority: proiInput.value,
         });
+
         doneArr.map((task) => {
           const addedTaskCard = document.createElement("div");
           addedTaskCard.setAttribute("class", "added_taskCard");

@@ -190,6 +190,10 @@ form {
   border-radius: 50%;
   cursor: pointer;
 }
+.delete_btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .edit_btn {
   border: 1px solid rgba(0, 0, 0, 0.3);
   width: 24px;
@@ -199,6 +203,10 @@ form {
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.edit_btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .status_container {
   display: flex;

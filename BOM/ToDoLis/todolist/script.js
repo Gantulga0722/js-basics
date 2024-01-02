@@ -195,6 +195,7 @@ function showAddTask() {
   // Add Task card
 
   const backDropActive = document.createElement("div");
+  backDropActive.setAttribute("id", "backDropActive");
   backDropActive.setAttribute("class", "backdrop_active");
   root.appendChild(backDropActive);
 
@@ -221,6 +222,7 @@ function showAddTask() {
   titleLabel.innerText = "Title";
 
   const titleInput = document.createElement("input");
+  titleInput.setAttribute("id", "titleInput");
   titleInput.setAttribute("class", "title_input");
   titleDiv.appendChild(titleInput);
 
@@ -243,6 +245,7 @@ function showAddTask() {
 
   const deskInput = document.createElement("textarea");
   deskInput.setAttribute("class", "desk_input");
+  deskInput.setAttribute("id", "deskInput");
   deskInput.setAttribute("rows", "5");
   deskInput.setAttribute("cols", "70");
   deskDiv.appendChild(deskInput);
@@ -265,6 +268,7 @@ function showAddTask() {
   statusLabel.innerText = "Status";
 
   const statusInput = document.createElement("select");
+  statusInput.setAttribute("id", "statusInput");
   statusInput.setAttribute("class", "status_input");
   statusDiv.appendChild(statusInput);
 
@@ -306,6 +310,7 @@ function showAddTask() {
   proiLabel.innerText = "Priority";
 
   const proiInput = document.createElement("select");
+  proiInput.setAttribute("id", "proiInput");
   proiInput.setAttribute("class", "prio_input");
   proiDiv.appendChild(proiInput);
 
@@ -335,6 +340,7 @@ function showAddTask() {
   const addTaskButton = document.createElement("input");
   addTaskButton.setAttribute("type", "button");
   addTaskButton.setAttribute("class", "addTask_btn");
+  addTaskButton.setAttribute("id", "addTask_btn");
   addTaskButton.value = "Add Task";
   addTaskCard.appendChild(addTaskButton);
   addTaskButton.addEventListener("click", addTaskToStages);
@@ -344,10 +350,6 @@ function showAddTask() {
   backDropActive.style.display = "flex";
 
   function addTaskToStages() {
-    // if (statusOption1.innerHTML == "To do") {
-    //   addTaskToTodo();
-    // }
-
     switch (statusInput.value) {
       case "todo":
         todoArr.push({
@@ -407,6 +409,8 @@ function showAddTask() {
           editDeleteBtn.appendChild(deleteBtn);
           deleteBtn.innerHTML = "x";
 
+          deleteBtn.addEventListener("click", deleteCardToDo);
+
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
           editDeleteBtn.appendChild(editBtn);
@@ -420,6 +424,14 @@ function showAddTask() {
           // Edit and Delete Button>
           countTask1.innerHTML = todoArr.length;
           statusCardContainerTd.appendChild(addedTaskCard);
+
+          function deleteCardToDo() {
+            addedTaskCard.remove();
+            for (let i = 0; i < todoArr.length; i++) {
+              todoArr.splice(i, 1);
+            }
+            countTask1.innerHTML = todoArr.length;
+          }
         });
         break;
       case "inprogress":
@@ -482,6 +494,8 @@ function showAddTask() {
           editDeleteBtn.appendChild(deleteBtn);
           deleteBtn.innerHTML = "x";
 
+          deleteBtn.addEventListener("click", deleteCardToDo);
+
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
           editDeleteBtn.appendChild(editBtn);
@@ -495,6 +509,14 @@ function showAddTask() {
           // Edit and Delete Button>
           countTask2.innerHTML = progressArr.length;
           statusCardContainerIp.appendChild(addedTaskCard);
+
+          function deleteCardToDo() {
+            addedTaskCard.remove();
+            for (let i = 0; i < progressArr.length; i++) {
+              progressArr.splice(i, 1);
+            }
+            countTask2.innerHTML = progressArr.length;
+          }
         });
 
         break;
@@ -558,6 +580,8 @@ function showAddTask() {
           editDeleteBtn.appendChild(deleteBtn);
           deleteBtn.innerHTML = "x";
 
+          deleteBtn.addEventListener("click", deleteCardToDo);
+
           const editBtn = document.createElement("div");
           editBtn.setAttribute("class", "edit_btn");
           editDeleteBtn.appendChild(editBtn);
@@ -571,6 +595,14 @@ function showAddTask() {
           // Edit and Delete Button>
           countTask3.innerHTML = stuckArr.length;
           statusCardContainerStu.appendChild(addedTaskCard);
+
+          function deleteCardToDo() {
+            addedTaskCard.remove();
+            for (let i = 0; i < stuckArr.length; i++) {
+              stuckArr.splice(i, 1);
+            }
+            countTask3.innerHTML = stuckArr.length;
+          }
         });
 
         break;
@@ -632,6 +664,8 @@ function showAddTask() {
           editDeleteBtn.appendChild(deleteBtn);
           deleteBtn.innerHTML = "x";
 
+          deleteBtn.addEventListener("click", deleteCardToDo);
+
           // deleteBtn.addEventListener("click", deleteOper);
 
           const editBtn = document.createElement("div");
@@ -647,6 +681,14 @@ function showAddTask() {
           // Edit and Delete Button>
           countTask4.innerHTML = doneArr.length;
           statusCardContainerDone.appendChild(addedTaskCard);
+
+          function deleteCardToDo() {
+            addedTaskCard.remove();
+            for (let i = 0; i < doneArr.length; i++) {
+              doneArr.splice(i, 1);
+            }
+            countTask4.innerHTML = doneArr.length;
+          }
         });
         break;
     }

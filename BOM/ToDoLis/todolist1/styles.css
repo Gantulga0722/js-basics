@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#root {
+  background-position: center;
+  background: url("https://wallpapers.com/images/hd/nature-landscape-hd-usqznq19dscdjkf8.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.container {
+  width: 2100px;
+  margin: auto;
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.status_column {
+  width: 150px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.task_card {
+  width: 150px;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  justify-content: space-around;
+}
+button {
+  margin-left: 15px;
+  margin-top: 15px;
+}

@@ -229,6 +229,7 @@ function showAddTask() {
   const messFill = document.createElement("span");
   messFill.setAttribute("class", "message");
   titleDiv.appendChild(messFill);
+  messFill.innerText = "Заавал утга оруулна уу!!!";
 
   // Title>
 
@@ -253,6 +254,7 @@ function showAddTask() {
   const messFill1 = document.createElement("span");
   messFill1.setAttribute("class", "message");
   deskDiv.appendChild(messFill1);
+  messFill1.innerText = "Заавал утга оруулна уу!!!";
 
   // Desctiption>
 
@@ -357,6 +359,7 @@ function showAddTask() {
           description: deskInput.value,
           priority: proiInput.value,
         });
+        // addedTaskContent.innerHTML = "";
 
         todoArr.map((task) => {
           const addedTaskCard = document.createElement("div");

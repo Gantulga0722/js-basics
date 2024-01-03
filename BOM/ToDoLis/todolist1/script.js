@@ -127,6 +127,15 @@ function renderTasks(list) {
   const todoStatusDiv = document.createElement("div");
   todoStatusDiv.setAttribute("class", "status_column");
 
+  const statusHead = document.createElement("div");
+  statusHead.setAttribute("class", "status_head");
+  statusHead.innerHTML = "To Do";
+  todoStatusDiv.appendChild(statusHead);
+
+  const heatCount = document.createElement("span");
+  heatCount.innerHTML = taskTodo.length;
+  statusHead.appendChild(heatCount);
+
   taskTodo.map((task) => {
     const newTask = createTask(task);
 
@@ -134,11 +143,23 @@ function renderTasks(list) {
     container.appendChild(todoStatusDiv);
   });
 
+  const addCardButton = addCard();
+  todoStatusDiv.appendChild(addCardButton);
+
   const taskInProgress = list.filter((todo) => {
     return todo.status == "In Progress";
   });
   const InProgressStatusDiv = document.createElement("div");
   InProgressStatusDiv.setAttribute("class", "status_column");
+
+  const statusHeadP = document.createElement("div");
+  statusHeadP.setAttribute("class", "status_head");
+  statusHeadP.innerHTML = "In Progress";
+  InProgressStatusDiv.appendChild(statusHeadP);
+
+  const heatCountP = document.createElement("span");
+  heatCountP.innerHTML = taskTodo.length;
+  statusHeadP.appendChild(heatCountP);
 
   taskInProgress.map((task) => {
     const newTask = createTask(task);
@@ -147,11 +168,23 @@ function renderTasks(list) {
     container.appendChild(InProgressStatusDiv);
   });
 
+  const addCardButton1 = addCard();
+  InProgressStatusDiv.appendChild(addCardButton1);
+
   const taskStuck = list.filter((todo) => {
     return todo.status == "Stuck";
   });
   const stuckStatusDiv = document.createElement("div");
   stuckStatusDiv.setAttribute("class", "status_column");
+
+  const statusHeadS = document.createElement("div");
+  statusHeadS.setAttribute("class", "status_head");
+  statusHeadS.innerHTML = "Stuck";
+  stuckStatusDiv.appendChild(statusHeadS);
+
+  const heatCountS = document.createElement("span");
+  heatCountS.innerHTML = taskTodo.length;
+  statusHeadS.appendChild(heatCountS);
 
   taskStuck.map((task) => {
     const newTask = createTask(task);
@@ -160,11 +193,23 @@ function renderTasks(list) {
     container.appendChild(stuckStatusDiv);
   });
 
+  const addCardButton2 = addCard();
+  stuckStatusDiv.appendChild(addCardButton2);
+
   const taskDone = list.filter((todo) => {
     return todo.status == "Done";
   });
   const doneStatusDiv = document.createElement("div");
   doneStatusDiv.setAttribute("class", "status_column");
+
+  const statusHeadD = document.createElement("div");
+  statusHeadD.setAttribute("class", "status_head");
+  statusHeadD.innerHTML = "Done";
+  doneStatusDiv.appendChild(statusHeadD);
+
+  const heatCountD = document.createElement("span");
+  heatCountD.innerHTML = taskTodo.length;
+  statusHeadD.appendChild(heatCountD);
 
   taskDone.map((task) => {
     const newTask = createTask(task);
@@ -172,6 +217,27 @@ function renderTasks(list) {
     doneStatusDiv.appendChild(newTask);
     container.appendChild(doneStatusDiv);
   });
+
+  const addCardButton3 = addCard();
+  doneStatusDiv.appendChild(addCardButton3);
+}
+
+function addCard() {
+  const addCardBtn = document.createElement("div");
+  addCardBtn.setAttribute("class", "add_card");
+  const addBtnIcon = document.createElement("img");
+
+  addBtnIcon.setAttribute(
+    "src",
+    `https://media.istockphoto.com/id/688550958/vector/black-plus-sign-positive-symbol.jpg?s=612x612&w=0&k=20&c=0tymWBTSEqsnYYXWeWmJPxMotTGUwaGMGs6BMJvr7X4=`
+  );
+
+  const addText = document.createElement("div");
+  addText.innerHTML = "Add card";
+
+  addCardBtn.appendChild(addBtnIcon);
+  addCardBtn.appendChild(addText);
+  return addCardBtn;
 }
 
 function createTask(task) {
@@ -179,18 +245,26 @@ function createTask(task) {
   const todoTitle = document.createElement("h1");
   const todoDescription = document.createElement("span");
   const todoPriority = document.createElement("div");
+  const doneBtn = document.createElement("button");
   const deleteBtn = document.createElement("button");
   const editBtn = document.createElement("button");
 
+  doneBtn.setAttribute("id", `${task.id}`);
+  doneBtn.innerText = "D";
+
+  doneBtn.addEventListener("click", (doneOper) => {
+    toDoneask(doneOper.target.id);
+  });
+
   deleteBtn.setAttribute("id", `${task.id}`);
-  deleteBtn.innerText = "Delete";
+  deleteBtn.innerText = "X";
 
   deleteBtn.addEventListener("click", (event) => {
     deleteTask(event.target.id);
   });
 
   editBtn.setAttribute("id", `${task.id}`);
-  editBtn.innerText = "Edit";
+  editBtn.innerText = "E";
 
   editBtn.addEventListener("click", (editOper) => {
     editTask(editOper.target.id);
@@ -204,9 +278,25 @@ function createTask(task) {
   taskCard.appendChild(todoTitle);
   taskCard.appendChild(todoDescription);
   taskCard.appendChild(todoPriority);
+  taskCard.appendChild(doneBtn);
   taskCard.appendChild(deleteBtn);
   taskCard.appendChild(editBtn);
+
   return taskCard;
+}
+
+function toDoneask(id) {
+  tasksArr = tasksArr.map((task) => {
+    if (task.id == id) {
+      return {
+        ...task,
+        status: "Done",
+      };
+    } else {
+      return task;
+    }
+  });
+  renderTasks(tasksArr);
 }
 
 function deleteTask(id) {

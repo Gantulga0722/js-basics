@@ -264,13 +264,13 @@ function editTask(id) {
       titleLabel.innerText = "Title";
 
       const titleInput = document.createElement("input");
-      titleInput.setAttribute("id", "titleInput");
+      titleInput.setAttribute("id", "titleInput1");
       titleInput.setAttribute("class", "title_input");
       titleDiv.appendChild(titleInput);
       titleInput.value = task.title;
 
       const messFill = document.createElement("span");
-      messFill.setAttribute("id", "messFill");
+      messFill.setAttribute("id", "messFill2");
       messFill.setAttribute("class", "message");
       titleDiv.appendChild(messFill);
       messFill.innerText = "Заавал утга оруулна уу!!!";
@@ -290,14 +290,14 @@ function editTask(id) {
 
       const deskInput = document.createElement("textarea");
       deskInput.setAttribute("class", "desk_input");
-      deskInput.setAttribute("id", "deskInput");
+      deskInput.setAttribute("id", "deskInput1");
       deskInput.setAttribute("rows", "5");
       deskInput.setAttribute("cols", "70");
       deskDiv.appendChild(deskInput);
       deskInput.value = task.description;
 
       const messFill1 = document.createElement("span");
-      messFill1.setAttribute("id", "messFill1");
+      messFill1.setAttribute("id", "messFill3");
       messFill1.setAttribute("class", "message");
       deskDiv.appendChild(messFill1);
       messFill1.innerText = "Заавал утга оруулна уу!!!";
@@ -316,7 +316,7 @@ function editTask(id) {
       statusLabel.innerText = "Status";
 
       const statusInput = document.createElement("select");
-      statusInput.setAttribute("id", "statusInput");
+      statusInput.setAttribute("id", "statusInput1");
       statusInput.setAttribute("class", "status_input");
       statusDiv.appendChild(statusInput);
       statusInput.value = task.status;
@@ -359,7 +359,7 @@ function editTask(id) {
       proiLabel.innerText = "Priority";
 
       const proiInput = document.createElement("select");
-      proiInput.setAttribute("id", "proiInput");
+      proiInput.setAttribute("id", "proiInput1");
       proiInput.setAttribute("class", "prio_input");
       proiDiv.appendChild(proiInput);
       proiInput.value = task.priority;
@@ -393,7 +393,7 @@ function editTask(id) {
       addTaskButton.setAttribute("id", "addTask_btn");
       addTaskButton.value = "Add Task";
       addTaskCard.appendChild(addTaskButton);
-      addTaskButton.addEventListener("click", pushtask);
+      addTaskButton.addEventListener("click", editTask);
 
       // Add task button>
 
@@ -580,6 +580,29 @@ function pushtask() {
   let prioValue = document.getElementById("proiInput").value;
   let messFill = document.getElementById("messFill");
   let messFill1 = document.getElementById("messFill1");
+  if (titleValue != "" && descValue != "") {
+    tasksArr.push({
+      title: titleValue,
+      description: descValue,
+      status: statusValue,
+      priority: prioValue,
+      id: Math.floor(Math.random() * 100000),
+    });
+    someDiv.innerHTML = "";
+    renderTasks(tasksArr);
+  } else {
+    messFill.style.display = "flex";
+    messFill1.style.display = "flex";
+  }
+}
+
+function pushtaskEdit() {
+  let titleValue = document.getElementById("titleInput1").value;
+  let descValue = document.getElementById("deskInput1").value;
+  let statusValue = document.getElementById("statusInput1").value;
+  let prioValue = document.getElementById("proiInput1").value;
+  let messFill = document.getElementById("messFill2");
+  let messFill1 = document.getElementById("messFill3");
   if (titleValue != "" && descValue != "") {
     tasksArr.push({
       title: titleValue,

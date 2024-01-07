@@ -39,10 +39,13 @@ const someDiv = document.createElement("div");
 root.appendChild(someDiv);
 
 function renderTasks(list) {
+  console.log(list);
   container.innerHTML = "";
   const taskTodo = list.filter((todo) => {
-    return todo.status == "To Do";
+    console.log(todo);
+    return todo.status === "To Do";
   });
+
   const todoStatusDiv = document.createElement("div");
   todoStatusDiv.setAttribute("class", "status_column");
 
@@ -55,8 +58,8 @@ function renderTasks(list) {
   heatCount.innerHTML = taskTodo.length;
   statusHead.appendChild(heatCount);
 
-  taskTodo.map((task) => {
-    const newTask = createTask(task);
+  taskTodo.map((task, index) => {
+    const newTask = createTask(task, index);
 
     todoStatusDiv.appendChild(newTask);
     container.appendChild(todoStatusDiv);
@@ -77,7 +80,7 @@ function renderTasks(list) {
   InProgressStatusDiv.appendChild(statusHeadP);
 
   const heatCountP = document.createElement("span");
-  heatCountP.innerHTML = taskTodo.length;
+  heatCountP.innerHTML = taskInProgress.length;
   statusHeadP.appendChild(heatCountP);
 
   taskInProgress.map((task) => {
@@ -102,7 +105,7 @@ function renderTasks(list) {
   stuckStatusDiv.appendChild(statusHeadS);
 
   const heatCountS = document.createElement("span");
-  heatCountS.innerHTML = taskTodo.length;
+  heatCountS.innerHTML = taskStuck.length;
   statusHeadS.appendChild(heatCountS);
 
   taskStuck.map((task) => {
@@ -127,7 +130,7 @@ function renderTasks(list) {
   doneStatusDiv.appendChild(statusHeadD);
 
   const heatCountD = document.createElement("span");
-  heatCountD.innerHTML = taskTodo.length;
+  heatCountD.innerHTML = taskDone.length;
   statusHeadD.appendChild(heatCountD);
 
   taskDone.map((task) => {
@@ -161,8 +164,9 @@ function addCard() {
   addCardBtn.appendChild(addText);
   return addCardBtn;
 }
+let tempIndex; // edit function only
 
-function createTask(task) {
+function createTask(task, index) {
   const taskCard = document.createElement("div");
   const todoTitle = document.createElement("h1");
   const todoDescription = document.createElement("span");
@@ -187,9 +191,8 @@ function createTask(task) {
 
   editBtn.setAttribute("id", `${task.id}`);
   editBtn.innerText = "E";
-
-  editBtn.addEventListener("click", (editOper) => {
-    editTask(editOper.target.id);
+  editBtn.addEventListener("click", (edit) => {
+    editTask(edit.target.id);
   });
 
   todoTitle.innerText = task.title;
@@ -222,11 +225,9 @@ function toDoneask(id) {
 }
 
 function deleteTask(id) {
-  console.log(id);
   tasksArr = tasksArr.filter((task) => {
     return task.id != id;
   });
-  console.log(tasksArr);
   renderTasks(tasksArr);
 }
 
@@ -234,7 +235,6 @@ function editTask(id) {
   tasksArr = tasksArr.map((task) => {
     if (task.id == id) {
       // Add Task card
-
       const backDropActive = document.createElement("div");
       backDropActive.setAttribute("id", "backDropActive");
       backDropActive.setAttribute("class", "backdrop_active");
@@ -267,6 +267,7 @@ function editTask(id) {
       titleInput.setAttribute("id", "titleInput1");
       titleInput.setAttribute("class", "title_input");
       titleDiv.appendChild(titleInput);
+
       titleInput.value = task.title;
 
       const messFill = document.createElement("span");
@@ -294,6 +295,7 @@ function editTask(id) {
       deskInput.setAttribute("rows", "5");
       deskInput.setAttribute("cols", "70");
       deskDiv.appendChild(deskInput);
+
       deskInput.value = task.description;
 
       const messFill1 = document.createElement("span");
@@ -319,6 +321,7 @@ function editTask(id) {
       statusInput.setAttribute("id", "statusInput1");
       statusInput.setAttribute("class", "status_input");
       statusDiv.appendChild(statusInput);
+
       statusInput.value = task.status;
 
       const statusOption1 = document.createElement("option");
@@ -362,6 +365,7 @@ function editTask(id) {
       proiInput.setAttribute("id", "proiInput1");
       proiInput.setAttribute("class", "prio_input");
       proiDiv.appendChild(proiInput);
+
       proiInput.value = task.priority;
 
       const priorityOption1 = document.createElement("option");
@@ -390,23 +394,19 @@ function editTask(id) {
       const addTaskButton = document.createElement("input");
       addTaskButton.setAttribute("type", "button");
       addTaskButton.setAttribute("class", "addTask_btn");
-      addTaskButton.setAttribute("id", "addTask_btn");
-      addTaskButton.value = "Add Task";
+      addTaskButton.setAttribute("id", "addTask_btn1");
+      addTaskButton.value = "Edit task";
       addTaskCard.appendChild(addTaskButton);
-      addTaskButton.addEventListener("click", editTask);
-
+      addTaskButton.addEventListener("click", () => {
+        pushtaskEdit(id);
+      });
       // Add task button>
-
+      // renderTasks(tasksArr);
       // backDropActive.style.display = "flex";
-      renderTasks(tasksArr);
     } else {
       return task;
     }
   });
-}
-
-function outSideClick() {
-  someDiv.innerHTML = "";
 }
 
 function showAddTask() {
@@ -596,23 +596,36 @@ function pushtask() {
   }
 }
 
-function pushtaskEdit() {
+function pushtaskEdit(id) {
+  console.log(id);
   let titleValue = document.getElementById("titleInput1").value;
   let descValue = document.getElementById("deskInput1").value;
   let statusValue = document.getElementById("statusInput1").value;
   let prioValue = document.getElementById("proiInput1").value;
   let messFill = document.getElementById("messFill2");
   let messFill1 = document.getElementById("messFill3");
-  if (titleValue != "" && descValue != "") {
-    tasksArr.push({
-      title: titleValue,
-      description: descValue,
-      status: statusValue,
-      priority: prioValue,
-      id: Math.floor(Math.random() * 100000),
-    });
-    someDiv.innerHTML = "";
-    renderTasks(tasksArr);
+  // tasksArr.splice(tempIndex, 1);
+
+  // tasksArr = tasksArr.map((element)=>{
+  //   if()
+  // })
+  console.log(tasksArr);
+  // tasksArr = tasksArr.filter((event) => {
+  //   console.log(event);
+  //   return event.id == id;
+  // });
+  console.log(tasksArr);
+  if (titleValue != " " && descValue != " ") {
+    // tasksArr.push({
+    //   title: titleValue,
+    //   description: descValue,
+    //   status: statusValue || " ",
+    //   priority: prioValue,
+    //   id: Math.floor(Math.random() * 100000),
+    // });
+    someDiv.innerHTML = " ";
+    console.log(tasksArr);
+    // renderTasks(tasksArr);
   } else {
     messFill.style.display = "flex";
     messFill1.style.display = "flex";
